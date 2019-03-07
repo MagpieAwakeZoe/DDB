@@ -66,8 +66,27 @@ exports.getData = function(req, res, next) {
     })
 };
 
+
+//获取数据集里的所有数据
 exports.gainData = function(req, res, next){
     Regist.find().then(data => {
         res.json(data);
     })
+};
+
+// 用户登录的用户名和密码匹配
+exports.userLogin = function (req, res, next) {
+    var userEmail = req.body.email;
+    var userPwd = req.body.password;
+    Regist.findOne({email: userEmail}, function (err, content) {
+        if (err) {
+            return res.json({status: 0, msg: err || '登录失败'});
+        } else {
+            if (content.password === userPwd) {
+                return res.json({status: 1, msg: "登录成功"});
+            } else  {
+                return res.json({status: 2, msg: "登录失败，密码错误"});
+            }
+        }
+    });
 };

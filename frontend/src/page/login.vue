@@ -2,14 +2,14 @@
   <div class="pg-login">
     <div class="loginarea">
       <div class="email box">
-        <input type="text" placeholder="请输入您的邮箱">
+        <input type="text" placeholder="请输入您的邮箱" v-model="formData.email">
       </div>
       <mu-divider></mu-divider>
       <div class="password box">
-        <input type="password" placeholder="请输入密码">
+        <input type="password" placeholder="请输入密码" v-model="formData.password">
       </div>
     </div>
-    <div class="loginbtn">
+    <div class="loginbtn" @click="submit">
       登录
     </div>
     <div class="bottomlink">
@@ -19,25 +19,43 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Toast from 'muse-ui-toast';
+Vue.use(Toast);
 export default {
   data() {
     return{
-
+      formData:{
+        email:'',
+        password:'',
+        status:''
+      }
     }
   },
   methods:{
     goRegist () {
       this.$router.push('/regist');
+    },
+    submit () {
+        this.axios({
+          method:'post',
+          url:'http://localhost:3000/regist/login',
+          data:{
+            email:this.formData.email,
+            password:this.formData.password
+          }
+        }).then( res => {
+          this.status = res.data.status;
+          if (this.status === 1){
+            Toast.info('登录成功');
+            // this.$router.push('/community');
+          } else if (this.status === 2) {
+            Toast.error('密码输入错误');
+          } else if (this.status === 0) {
+            Toast.error('用户名错误');
+          }
+        })
     }
-  },
-  mounted () {
-    this.axios({
-      method:'get',
-      url:'http://localhost:3000/regist/gainData',
-      data:{}
-    }).then( res => {
-      console.log(res);
-    })
   }
 }
 </script>

@@ -12,5 +12,7 @@ router.post('/data/removes', dataCtrl.removes);
 router.put('/data/:id', dataCtrl.update);
 router.post('/list', dataCtrl.list);     //分页
 router.delete('/removes', dataCtrl.removes);
+router.post('/login', dataCtrl.userLogin);    //用户登录判断
 module.exports = router;
+
 
