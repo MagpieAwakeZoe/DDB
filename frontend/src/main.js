@@ -14,6 +14,7 @@ import 'muse-ui/dist/muse-ui.css';
 Vue.use(Router);
 Vue.use(MuseUi);
 Vue.use(axios);
+Vue.use(Vuex);
 Vue.config.productionTip = false;
 Vue.prototype.axios = axios;
 // window.axios = axios;

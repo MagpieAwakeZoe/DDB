@@ -2,8 +2,8 @@
   <div class="top-diary-btn">
     <div class="top">
       <p @click="goBack">取消</p>
-      <p>2019年02月28日</p>
-      <p>完成</p>
+      <p>{{date.year}}年{{date.month}}月{{date.day}}日{{date.hour}}点</p>
+      <p>&nbsp;&nbsp;</p>
     </div>
   </div>
 </template>
@@ -11,6 +11,16 @@
 
 export default {
     name: 'topDiaryBtn',
+    data () {
+      return {
+        date:{
+          year: new Date().getFullYear(),
+          month: new Date().getMonth()+1,
+          day: new Date().getDate(),
+          hour: new Date().getHours()
+        }
+      }
+    },
     props: {
         fixed: {
             type: Boolean,
@@ -21,6 +31,25 @@ export default {
       goBack () {
         this.$router.go(-1);
       }
+    },
+    mounted () {
+      // console.log(this.date.year);
+      this.$store.commit({    //存时间
+              type: "saveYear",
+              year: this.date.year
+      });
+      this.$store.commit({    //存时间
+              type: "saveMonth",
+              month: this.date.month
+      });
+      this.$store.commit({    //存时间
+              type: "saveDay",
+              day: this.date.day
+      });
+      this.$store.commit({    //存时间
+              type: "saveHour",
+              hour: this.date.hour
+      });
     }
 };
 
@@ -35,6 +64,7 @@ export default {
       display: flex;
       justify-content: space-between;
       font-size: 13px;
+      letter-spacing: 1px;
     }
   }
 </style>

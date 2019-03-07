@@ -3,7 +3,12 @@ materializedPlugin = require('mongoose-materialized');
 
 var  schema = new mongoose.Schema({
   title:String,     //文章标题
-  time:String,      //文章发布时间
+  time:{
+    year:String,
+    month:String,
+    day:String,
+    hour:String
+  },
   author:String,    //作者
   thumbs:String,    //点赞数
   pic:String,       //插图地址

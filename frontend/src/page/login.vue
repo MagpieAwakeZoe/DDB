@@ -48,6 +48,12 @@ export default {
           this.status = res.data.status;
           if (this.status === 1){
             Toast.info('登录成功');
+            this.$store.commit('onlineStatus');   //登录成功后登录状态由-1变成1
+            this.$store.commit({    //登录成功之后把用户名存到store里
+              type: "saveUserName",
+              userName: this.formData.email
+            });
+            // console.log(this.$store.state.userName);
             // this.$router.push('/community');
           } else if (this.status === 2) {
             Toast.error('密码输入错误');

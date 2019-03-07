@@ -1,11 +1,12 @@
 <template>
   <div class="pg-text-diary">
     <topDiaryBtn></topDiaryBtn>
+    <div class="finished" @click="finished">完成</div>
     <div class="title">
-      <input type="text" placeholder="标题">
+      <input type="text" placeholder="标题" v-model="pageMsg.title">
     </div>
     <div class="main-body">
-      <textarea placeholder="请输入"></textarea>
+      <textarea placeholder="请输入" v-model="pageMsg.content"></textarea>
     </div>
   </div>
 </template>
@@ -25,8 +26,40 @@ export default {
   },
   data(){
     return{
-
+      pageMsg:{
+        author: '',
+        time: {
+          year: '',
+          month: '',
+          day: '',
+          hour: ''
+        },
+        title: '',
+        content: ''
+      }
     };
+  },
+  methods: {
+    finished () {
+      this.axios({
+          method:'post',
+          url:'http://localhost:3000/diary/data',
+          data:{
+            author:this.pageMsg.author,
+            title:this.pageMsg.title,
+            content:this.pageMsg.content
+          }
+        })
+    }
+  },
+  mounted () {
+    //取得用户名
+    this.pageMsg.author = this.$store.state.userName;
+    this.pageMsg.time.year = this.$store.state.time.year;
+    this.pageMsg.time.month = this.$store.state.time.month;
+    this.pageMsg.time.day = this.$store.state.time.day;
+    this.pageMsg.time.hour = this.$store.state.time.hour;
+    console.log(this.pageMsg);
   }
 }
 </script>
@@ -55,6 +88,14 @@ export default {
         font-size: 14px;
         padding: 0px 8px 10px 10px;
       }
+    }
+    .finished{
+      position: absolute;
+      font-size: 13px;
+      left: 90%;
+      width: 30px;
+      height: 30px;
+      top: 2%;
     }
   }
 </style>
