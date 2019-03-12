@@ -37,7 +37,7 @@
                   <mu-list-item-action>
                     <mu-icon value="alarm"></mu-icon>
                   </mu-list-item-action>
-                  <mu-list-item-title>每日提醒写故事</mu-list-item-title>
+                  <mu-list-item-title @click="writeDiary">每日提醒写故事</mu-list-item-title>
                   <mu-list-item-action>
                     <mu-icon value="play_arrow"></mu-icon>
                   </mu-list-item-action>
@@ -46,7 +46,7 @@
                   <mu-list-item-action>
                     <mu-icon value="drafts"></mu-icon>
                   </mu-list-item-action>
-                  <mu-list-item-title>未来的信</mu-list-item-title>
+                  <mu-list-item-title @click="goLetter">未来的信</mu-list-item-title>
                   <mu-list-item-action>
                     <mu-icon value="play_arrow"></mu-icon>
                   </mu-list-item-action>
@@ -55,7 +55,7 @@
                   <mu-list-item-action>
                     <mu-icon value="cached"></mu-icon>
                   </mu-list-item-action>
-                  <mu-list-item-title>回收站</mu-list-item-title>
+                  <mu-list-item-title @click="goRubbish">回收站</mu-list-item-title>
                   <mu-list-item-action>
                     <mu-icon value="play_arrow"></mu-icon>
                   </mu-list-item-action>
@@ -64,7 +64,7 @@
                   <mu-list-item-action>
                     <mu-icon value="star"></mu-icon>
                   </mu-list-item-action>
-                  <mu-list-item-title>我的收藏</mu-list-item-title>
+                  <mu-list-item-title @click="goFavourite">我的收藏</mu-list-item-title>
                   <mu-list-item-action>
                     <mu-icon value="play_arrow"></mu-icon>
                   </mu-list-item-action>
@@ -73,7 +73,7 @@
                   <mu-list-item-action>
                     <mu-icon value="face"></mu-icon>
                   </mu-list-item-action>
-                  <mu-list-item-title>印象</mu-list-item-title>
+                  <mu-list-item-title @click="goImpression">印象</mu-list-item-title>
                   <mu-list-item-action>
                     <mu-icon value="play_arrow"></mu-icon>
                   </mu-list-item-action>
@@ -115,6 +115,21 @@ export default {
     },
     goPersonalData () {
       this.$router.push('/personalData');
+    },
+    goLetter () {
+      this.$router.push('/future');
+    },
+    goRubbish () {
+      this.$router.push('/rubbish');
+    },
+    goFavourite () {
+      this.$router.push('/favourite')
+    },
+    goImpression () {
+      this.$router.push('/impression')
+    },
+    writeDiary () {
+      this.$router.push('/setTime')
     }
   }
 }

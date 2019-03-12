@@ -37,6 +37,31 @@ export default {
         title: '',
         content: ''
       }
+      //评论假数据
+      ,commentData:[
+        {
+          avatar:'头像1',
+          judgeMan:'评论人1',
+          judgeTime:'评论时间1',
+          content:'评论内容1',
+          thumbs:'获赞数1'
+        }
+        ,
+        {
+          avatar:'头像2',
+          judgeMan:'评论人2',
+          judgeTime:'评论时间2',
+          content:'评论内容2',
+          thumbs:'获赞数2'
+        },
+        {
+          avatar:'头像3',
+          judgeMan:'评论人3',
+          judgeTime:'评论时间3',
+          content:'评论内容3',
+          thumbs:'获赞数3'
+        }
+      ]
     };
   },
   methods: {
@@ -47,7 +72,9 @@ export default {
           data:{
             author:this.pageMsg.author,
             title:this.pageMsg.title,
-            content:this.pageMsg.content
+            content:this.pageMsg.content,
+            time:this.pageMsg.time,
+            comments:this.commentData
           }
         })
     }
@@ -59,7 +86,7 @@ export default {
     this.pageMsg.time.month = this.$store.state.time.month;
     this.pageMsg.time.day = this.$store.state.time.day;
     this.pageMsg.time.hour = this.$store.state.time.hour;
-    console.log(this.pageMsg);
+    // console.log(this.pageMsg);
   }
 }
 </script>

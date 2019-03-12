@@ -11,6 +11,7 @@ mongoose.connect('mongodb://localhost:27017/vue');
 
 var registRouter = require('./routes/regist');
 var diaryRouter = require('./routes/diary');
+var commentRouter = require('./routes/comment');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(cors());
 
 app.use('/regist', registRouter);
 app.use('/diary', diaryRouter);
+app.use('/comment', commentRouter);
 
 
 // catch 404 and forward to error handler

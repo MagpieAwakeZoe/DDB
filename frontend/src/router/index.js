@@ -60,5 +60,30 @@ export default [
     path:'/personalData',
     name:'个人资料',
     component:resolve => require(['@/page/personalData'], resolve)
+  },
+  {
+    path:'/rubbish',
+    name:'回收站',
+    component:resolve => require(['@/page/rubbish'], resolve)
+  },
+  {
+    path:'/future',
+    name:'未来的信',
+    component:resolve => require(['@/page/future'], resolve)
+  },
+  {
+    path:'/favourite',
+    name:'我的收藏',
+    component:resolve => require(['@/page/favourite'], resolve)
+  },
+  {
+    path:'/impression',
+    name:'印象',
+    component:resolve => require(['@/page/impression'], resolve)
+  },
+  {
+    path:'/setTime',
+    name:'时间设置',
+    component:resolve => require(['@/page/setTime'], resolve)
   }
 ]

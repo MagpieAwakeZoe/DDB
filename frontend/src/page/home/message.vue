@@ -8,7 +8,7 @@
         </mu-tabs>
       </mu-paper>
       <div class="demo-text" v-if="active1 === 0">
-        <div class="message-container">
+        <div class="message-container c1">
            <div class="title-tab">
              <ul>
                <li><div class="btn thumbs"><mu-icon value="thumb_up" color="white" size="26"></mu-icon></div><p>点赞</p></li>
@@ -17,11 +17,16 @@
                <li><div class="btn impression"><mu-icon value="thumb_up" color="white" size="26"></mu-icon></div><p>印象</p></li>
              </ul>
            </div>
+           <template>
+            <div class="no-list"><p>暂无动态！</p></div>
+          </template>
         </div>
       </div>
       <div class="demo-text" v-if="active1 === 1">
-        <div class="message-container">
-
+        <div class="message-container c2">
+          <template>
+            <div class="no-list"><p>&nbsp;&nbsp;暂无联系人！</p></div>
+          </template>
         </div>
       </div>
     </mu-container>
@@ -59,6 +64,24 @@ export default {
       }
     }
     .message-container{
+      .no-list{
+      width: 150px;
+      height: 180px;
+      background: url('../../assets/images/62779058_p0.png') no-repeat center center;
+      font-size: 18px;
+      overflow: hidden;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      p{
+        margin: 0 auto;
+        margin: 155px 0 0 12px;
+        letter-spacing: 1px;
+        color: #5E5E5E;
+        text-align: center;
+      }
+    }
       margin-top: 2px;
       width: 100%;
       height: 100vh;

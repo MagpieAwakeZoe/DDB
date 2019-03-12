@@ -15,13 +15,6 @@ var  schema = new mongoose.Schema({
   avatar:String,    //头像地址
   collectionNum:String, //收藏数
   content:String,       //文章内容
-  comments:{        //评论
-      avatar:String,    //头像
-      judgeMan:String,  //评论人
-      judgeTime:String, //评论时间
-      content:String,   //内容
-      thumbs:String     //点赞数
-  }
 });
 
 

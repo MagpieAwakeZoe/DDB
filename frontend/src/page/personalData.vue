@@ -1,5 +1,5 @@
 <template>
-  <div class="pg-details">
+  <div class="pg-personalData">
     <header>
       <mu-icon value="arrow_back" class="mu-icon" @click="goBack"></mu-icon>
       <span>个人资料</span>
@@ -57,7 +57,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.pg-details {
+.pg-personalData {
   header {
     width: 100%;
     display: flex;
