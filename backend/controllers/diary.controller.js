@@ -66,8 +66,17 @@ exports.getData = function(req, res, next) {
     })
 };
 
-exports.gainData = function(req, res, next){
+exports.gainData = function(req, res, next) {
     Diary.find().then(data => {
         res.json(data);
+    })
+};
+
+//查到指定用户下的文章
+exports.gainPage = function(req, res, next) {
+    console.log(typeof req.query)
+    const {user_id} = req.query
+    Diary.findOne({user_id:user_id}).then(data => {
+        res.json({data, type:(req.query.user_id)});
     })
 };

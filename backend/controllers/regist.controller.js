@@ -83,7 +83,7 @@ exports.userLogin = function (req, res, next) {
             return res.json({status: 0, msg: err || '登录失败'});
         } else {
             if (content.password === userPwd) {
-                return res.json({status: 1, msg: "登录成功"});
+                return res.json({status: 1, msg: "登录成功", content: content});
             } else  {
                 return res.json({status: 2, msg: "登录失败，密码错误"});
             }

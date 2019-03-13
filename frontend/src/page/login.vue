@@ -28,7 +28,8 @@ export default {
       formData:{
         email:'',
         password:'',
-        status:''
+        status:'',
+        user_id: ''
       }
     }
   },
@@ -45,15 +46,19 @@ export default {
             password:this.formData.password
           }
         }).then( res => {
+          this.user_id = res.data.content._id;
           this.status = res.data.status;
           if (this.status === 1){
             Toast.info('登录成功');
             this.$store.commit('onlineStatus');   //登录成功后登录状态由-1变成1
-            this.$store.commit({    //登录成功之后把用户名存到store里
+            this.$store.commit({    //登录成功之后把用户名,用户id存到store里
               type: "saveUserName",
               userName: this.formData.email
             });
-            // console.log(this.$store.state.userName);
+            this.$store.commit({    //登录成功之后把用户id存到store里
+              type: "saveUserId",
+              user_id: this.user_id
+            });
             // this.$router.push('/community');
           } else if (this.status === 2) {
             Toast.error('密码输入错误');

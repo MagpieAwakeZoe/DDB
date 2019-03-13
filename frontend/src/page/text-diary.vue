@@ -28,6 +28,7 @@ export default {
     return{
       pageMsg:{
         author: '',
+        user_id: '',
         time: {
           year: '',
           month: '',
@@ -73,8 +74,9 @@ export default {
             author:this.pageMsg.author,
             title:this.pageMsg.title,
             content:this.pageMsg.content,
-            time:this.pageMsg.time,
-            comments:this.commentData
+            user_id:this.pageMsg.user_id
+            // time:this.pageMsg.time
+
           }
         })
     }
@@ -82,6 +84,7 @@ export default {
   mounted () {
     //取得用户名
     this.pageMsg.author = this.$store.state.userName;
+    this.pageMsg.user_id = this.$store.state.user_id;
     this.pageMsg.time.year = this.$store.state.time.year;
     this.pageMsg.time.month = this.$store.state.time.month;
     this.pageMsg.time.day = this.$store.state.time.day;

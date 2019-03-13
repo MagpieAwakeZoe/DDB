@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+    plugins: [createPersistedState()],
     state: {
+        user_id: '',
         userName: '一位不知名的路过网友',
         loginStatus: -1,     //offlineStatus未登录
         time:{
@@ -26,6 +29,12 @@ export default new Vuex.Store({
 
       saveUserName (state, payload) {
         state.userName = payload.userName;
+      },
+
+      // 用户id存储
+
+      saveUserId (state, payload) {
+        state.user_id = payload.user_id;
       },
 
       // 用户时间存储

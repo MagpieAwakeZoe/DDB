@@ -12,5 +12,6 @@ router.post('/data/removes', dataCtrl.removes);
 router.put('/data/:id', dataCtrl.update);
 router.post('/list', dataCtrl.list);     //分页
 router.delete('/removes', dataCtrl.removes);
+router.get('/gainpage', dataCtrl.gainPage);
 module.exports = router;
 
