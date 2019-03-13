@@ -47,7 +47,7 @@
       </mu-tabs>
       <div class="tab-text tab0" v-if="active1 === 0">
         <div class="new">
-        <mu-card @click="details" style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
+        <mu-card @click="details" class="card" v-for="(value,index) in newPage" :key="index">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
               <img src="../../assets/images/avat.jpg">
@@ -58,15 +58,12 @@
             <p>一个月前</p>
           </div>
           <mu-card-text style="margin-top:-4%;font-size:13px;">
-            散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
-            调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
-            似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，
-            找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！
+            {{value.content}}
           </mu-card-text>
           <div class="user-tag">
-            <mu-icon value="thumb_up"></mu-icon><span>1</span>
-            <mu-icon value="edit"></mu-icon><span>1</span>
-            <mu-icon value="grade"></mu-icon><span>1</span>
+            <mu-icon value="thumb_up"></mu-icon><span>{{value.thumbsNum}}</span>
+            <mu-icon value="edit"></mu-icon><span>{{value.commentsNum}}</span>
+            <mu-icon value="grade"></mu-icon><span>{{value.collectionNum}}</span>
           </div>
         </mu-card>
         </div>
@@ -129,7 +126,9 @@ export default {
       isSelected1:true,
       isSelected2:false,
       isSelected3:false,
-      isSelected4:false
+      isSelected4:false,
+      //最新
+      newPage:[]
     };
   },
   methods: {
@@ -168,6 +167,15 @@ export default {
     details () {
       this.$router.push('/details');
     }
+  },
+  mounted () {
+    this.axios({
+      method:'get',
+      url:'http://localhost:3000/diary/gainData'
+    }).then( res => {
+      this.newPage = res.data;
+      console.log(this.newPage);
+    })
   }
 };
 </script>
@@ -228,6 +236,13 @@ export default {
       font-size: 18px;
       letter-spacing: 2px;
     }
+  }
+  .card{
+    width: 100%;
+    max-width: 375px;
+    margin: 0 auto;
+    box-shadow:none;
+    background:rgb(250,250,250);
   }
   .tab-title{
     width: 94%;

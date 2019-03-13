@@ -8,6 +8,7 @@ export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
         user_id: '',
+        page_id: '',
         userName: '一位不知名的路过网友',
         loginStatus: -1,     //offlineStatus未登录
         time:{
