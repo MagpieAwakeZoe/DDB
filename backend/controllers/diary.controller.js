@@ -80,3 +80,11 @@ exports.gainPage = function(req, res, next) {
         res.json({data, type:(req.query.user_id)});
     })
 };
+
+//查到指定用户下的文章并且修改
+// exports.gainPageAndUpdate = function(req, res, next) {
+//     const {user_id} = req.query;
+//     Diary.update({user_id:user_id},{}).then(data => {
+//         res.json(data);
+//     })
+// };

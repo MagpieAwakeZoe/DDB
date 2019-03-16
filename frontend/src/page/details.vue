@@ -72,10 +72,10 @@ export default {
       textarea: '',
       page_id: '',
       open: false,
-      page_detail: '',
+      page_detail: {},
       comments: [],
       collectionNum: '',    //收藏数
-      commentsNum: '',      //评论数
+      // commentsNum: '',      //评论数
       thumbsNum: ''         //点赞数
 
     };
@@ -102,6 +102,7 @@ export default {
           console.log(res);
         })
         this.renderComment();
+        this.renderCommentNum();
     },
     renderComment () {
       //评论页的渲染
@@ -112,6 +113,17 @@ export default {
        this.comments = res.data;
      })
     },
+    renderCommentNum () {
+        this.axios({
+        method:'put',
+        url:'http://localhost:3000/diary/data/'+this.page_id,
+        data:{
+          commentsNum: this.comments.length
+        }
+      }).then( res => {
+        console.log(res);
+      })
+    },
     collect (e) {
       this.$alert('已收藏', '提示', {
         okLabel: '知道了'
@@ -121,11 +133,29 @@ export default {
       this.flag = false;
       this.starColor = "#fbc02d";
       this.collectionNum ++;
+      this.axios({
+        method:'put',
+        url:'http://localhost:3000/diary/data/'+this.page_id,
+        data:{
+          collectionNum: this.collectionNum
+        }
+      }).then( res => {
+        console.log(res);
+      })
     },
     thumb () {
       this.thumbColor = '#ff6e40';
       this.flag1 = false;
       this.thumbsNum ++;
+      this.axios({
+        method:'put',
+        url:'http://localhost:3000/diary/data/'+this.page_id,
+        data:{
+          thumbsNum: this.thumbsNum
+        }
+      }).then( res => {
+        console.log(res);
+      })
     }
   },
   mounted () {
