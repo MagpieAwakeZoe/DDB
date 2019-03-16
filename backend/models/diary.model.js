@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 materializedPlugin = require('mongoose-materialized');  
-const Comment = require('./comment.model.js');
-const Regist = require('./regist.model.js');
-var Schema   = mongoose.Schema;
 var  schema = new mongoose.Schema({
   title: String,     //文章标题
   author: String,

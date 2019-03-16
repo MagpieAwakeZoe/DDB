@@ -74,4 +74,10 @@ exports.gainData = function(req, res, next){
 
 
 
-//多表查询
+//查到指定文章下的评论
+exports.gainComment = function(req, res, next) {
+    const {page_id} = req.query
+    Comment.findOne({page_id:page_id}).then(data => {
+        res.json({data, type:(req.query.page_id)});
+    })
+};

@@ -47,7 +47,7 @@
       </mu-tabs>
       <div class="tab-text tab0" v-if="active1 === 0">
         <div class="new">
-        <mu-card @click="details" class="card" v-for="(value,index) in newPage" :key="index">
+        <mu-card @click="details(value._id)" class="card" v-for="(value,index) in newPage" :key="index">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
               <img src="../../assets/images/avat.jpg">
@@ -64,6 +64,7 @@
             <mu-icon value="thumb_up"></mu-icon><span>{{value.thumbsNum}}</span>
             <mu-icon value="edit"></mu-icon><span>{{value.commentsNum}}</span>
             <mu-icon value="grade"></mu-icon><span>{{value.collectionNum}}</span>
+            {{value._id}}
           </div>
         </mu-card>
         </div>
@@ -164,8 +165,13 @@ export default {
     toSearch () {
       this.$router.push('/search');
     },
-    details () {
-      this.$router.push('/details');
+    details (_id) {
+      this.$router.push({
+        path: '/details',
+        query: {
+          page_id: _id
+        }
+      });
     }
   },
   mounted () {

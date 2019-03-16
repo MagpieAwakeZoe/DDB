@@ -53,8 +53,8 @@
           <mu-icon value="edit" color="#bdbdbd" @click="openBotttomSheet"></mu-icon>
           <mu-bottom-sheet :open.sync="open">
             <div style="display:flex;justify-content:space-around;">
-            <textarea name="" id="" cols="35" rows="1" class="textarea" style="background:#cccccc;border:none;outline:none;border-radius:8px;font-size:16px;margin:6px 6px 6px 6px;text-indent:8px;"></textarea>
-            <mu-icon value="send" style="width:24px;height:24px;margin:8px;"></mu-icon>
+            <textarea name="" id="" cols="35" rows="1" class="textarea" style="background:#cccccc;border:none;outline:none;border-radius:8px;font-size:16px;margin:6px 6px 6px 6px;text-indent:8px;" v-model="textarea"></textarea>
+            <mu-icon value="send" style="width:24px;height:24px;margin:8px;" @click="sendComment"></mu-icon>
             </div>
           </mu-bottom-sheet>
         </mu-container>
@@ -67,7 +67,8 @@
 export default {
   data() {
     return {
-      textarea:'',
+      textarea: '',
+      page_id: '',
       open: false
     };
   },
@@ -80,7 +81,24 @@ export default {
     },
     openBotttomSheet () {
       this.open = true;
+    },
+    sendComment () {
+      this.axios({
+          method:'post',
+          url:'http://localhost:3000/comment/data',
+          data:{
+            page_id: this.page_id,
+            content: this.textarea
+          }
+        }).then( res =>{
+          console.log(res);
+        })
     }
+  },
+  mounted () {
+    this.page_id = this.$route.query.page_id;
+    //评论页的渲染
+
   }
 };
 </script>
