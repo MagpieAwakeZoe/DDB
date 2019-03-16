@@ -3,7 +3,7 @@
     <header>
       <mu-icon value="arrow_back" class="mu-icon" @click="goBack"></mu-icon>
       <span>详情</span>
-      <mu-icon value="star" class="mu-icon"></mu-icon>
+      <mu-icon value="star" class="mu-icon" :color="starColor" @click="flag && collect($event)"></mu-icon>
     </header>
     <div id="main">
       <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
@@ -17,7 +17,7 @@
             <div></div>
           </div>
           <mu-card-text class="text">
-            {{page_detail}}
+            {{page_detail.content}}
           </mu-card-text>
         </mu-card>
         <mu-divider></mu-divider>
@@ -41,7 +41,7 @@
     </div>
     <footer>
       <div class="icon">
-        <mu-icon value="thumb_up" color="#bdbdbd"></mu-icon>
+        <mu-icon value="thumb_up" :color="thumbColor" @click="flag1 && thumb($event)"></mu-icon>
       </div>
       <div class="icon">
         <mu-container>
@@ -59,14 +59,25 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   data() {
     return {
+      flag: true,
+      flag1: true,
+      starColor: '#90a4ae',
+      thumbColor: '#bdbdbd',
       textarea: '',
       page_id: '',
       open: false,
       page_detail: '',
-      comments: []
+      comments: [],
+      collectionNum: '',    //收藏数
+      commentsNum: '',      //评论数
+      thumbsNum: ''         //点赞数
+
     };
   },
   methods: {
@@ -100,12 +111,30 @@ export default {
      }).then( res => {
        this.comments = res.data;
      })
+    },
+    collect (e) {
+      this.$alert('已收藏', '提示', {
+        okLabel: '知道了'
+      }).then(() => {
+        this.$toast.message('提示信息');
+      });
+      this.flag = false;
+      this.starColor = "#fbc02d";
+      this.collectionNum ++;
+    },
+    thumb () {
+      this.thumbColor = '#ff6e40';
+      this.flag1 = false;
+      this.thumbsNum ++;
     }
   },
   mounted () {
-    this.page_detail = JSON.parse(localStorage.getItem('page_detail')).content;
+    this.page_detail = JSON.parse(localStorage.getItem('page_detail'));
     this.page_id = JSON.parse(localStorage.getItem('page_detail'))._id;
     this.renderComment();
+    this.collectionNum = this.page_detail.collectionNum;
+    this.commentsNum = this.page_detail.commentsNum;
+    this.thumbsNum = this.page_detail.thumbsNum;
   }
 };
 </script>

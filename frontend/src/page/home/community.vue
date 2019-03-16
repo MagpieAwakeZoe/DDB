@@ -178,7 +178,7 @@ export default {
       url:'http://localhost:3000/diary/gainData'
     }).then( res => {
       this.newPage = res.data;
-      // console.log(this.newPage);
+      console.log(this.newPage);
     })
   }
 };
