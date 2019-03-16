@@ -7,6 +7,7 @@ const dataCtrl = require('../controllers/comment.controller');
 router.post('/data', dataCtrl.create);
 router.get('/data/:id', dataCtrl.getData);
 router.get('/gainData', dataCtrl.gainData);
+router.get('/gainComment', dataCtrl.gainComment);
 router.delete('/data/:id', dataCtrl.remove);
 router.post('/data/removes', dataCtrl.removes);
 router.put('/data/:id', dataCtrl.update);

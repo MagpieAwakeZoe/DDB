@@ -32,16 +32,16 @@
           </div>
         </div>
         <div class="com-content">
+          <div class="per-comment" v-for="(value,index) in comments" :key="index">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
               <img src="../assets/images/avat.jpg">
             </mu-avatar>
           </mu-card-header>
           <mu-card-text class="text-com">
-            散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
-            调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
-            似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，
+           {{value.content}}
           </mu-card-text>
+          </div>
         </div>
     </div>
     <footer>
@@ -69,7 +69,8 @@ export default {
     return {
       textarea: '',
       page_id: '',
-      open: false
+      open: false,
+      comments: []
     };
   },
   methods: {
@@ -93,12 +94,21 @@ export default {
         }).then( res =>{
           console.log(res);
         })
+        this.renderComment();
+    },
+    renderComment () {
+      //评论页的渲染
+    this.axios({
+        method:'get',
+        url:'http://localhost:3000/comment/gainComment?page_id='+this.page_id,
+     }).then( res => {
+       this.comments = res.data;
+     })
     }
   },
   mounted () {
     this.page_id = this.$route.query.page_id;
-    //评论页的渲染
-
+    this.renderComment();
   }
 };
 </script>
