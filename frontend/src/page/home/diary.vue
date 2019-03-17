@@ -43,7 +43,7 @@ export default {
       url:'http://localhost:3000/diary/gainPage?user_id='+user_id,
     }).then( res => {
       this.myDiary = res.data;
-      console.log(this.myDiary);
+      // console.log(this.myDiary);
     })
   }
 }
