@@ -48,6 +48,11 @@ export default {
       this.$router.go(-1);
     },
     finish () {
+      //存储用户昵称到vuex仓库
+      this.$store.commit({
+          type: "saveNiname",
+          niname: this.form.niname,
+      });
       const user_id = this.$store.state.user_id;
       // console.log(user_id);
       // console.log(this.form);

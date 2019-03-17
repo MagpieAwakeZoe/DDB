@@ -3,6 +3,7 @@ materializedPlugin = require('mongoose-materialized');
 var  schema = new mongoose.Schema({
   title: String,     //文章标题
   author: String,
+  niname: String,
   user_id: String,
   // user_id: {type: Schema.Types.ObjectId },
   time:{

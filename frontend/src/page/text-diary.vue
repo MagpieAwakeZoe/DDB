@@ -28,6 +28,7 @@ export default {
     return{
       pageMsg:{
         author: '',
+        niname: '',
         user_id: '',
         time: {
           year: '',
@@ -50,14 +51,19 @@ export default {
             title:this.pageMsg.title,
             content:this.pageMsg.content,
             user_id:this.pageMsg.user_id,
-            time:this.pageMsg.time
+            time:this.pageMsg.time,
+            niname:this.pageMsg.niname
           }
+        }).then((res) =>{
+          console.log(res);
         })
     }
   },
   mounted () {
     //取得用户名
     this.pageMsg.author = this.$store.state.userName;
+    //取得昵称
+    this.pageMsg.niname = this.$store.state.niname;
     this.pageMsg.user_id = this.$store.state.user_id;
     this.pageMsg.time.year = this.$store.state.time.year;
     this.pageMsg.time.month = this.$store.state.time.month;

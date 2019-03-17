@@ -8,6 +8,7 @@ export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
         user_id: '',
+        niname: '一位不知名的路过网友',
         userName: '一位不知名的路过网友',
         loginStatus: -1,     //offlineStatus未登录
         time:{
@@ -35,6 +36,11 @@ export default new Vuex.Store({
 
       saveUserId (state, payload) {
         state.user_id = payload.user_id;
+      },
+
+      //用户昵称存储
+      saveNiname (state, payload) {
+        state.niname = payload.niname;
       },
 
       // 用户时间存储

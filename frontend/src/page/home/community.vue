@@ -48,10 +48,14 @@
       <div class="tab-text tab0" v-if="active1 === 0">
         <div class="new">
         <mu-card @click="details(value)" class="card" v-for="(value,index) in newPage" :key="index">
-          <mu-card-header title="Myron Avatar" sub-title="sub title">
+          <mu-card-header class="header">
             <mu-avatar slot="avatar">
               <img src="../../assets/images/avat.jpg">
             </mu-avatar>
+            <div class="author">
+              <div class="niname">{{value.niname}}</div>
+              <div class="email">{{value.author}}</div>
+            </div>
           </mu-card-header>
           <!-- TODO:timeago控件 -->
           <div class="timer">
@@ -117,6 +121,8 @@ export default {
   },
   data() {
     return {
+      title:'',
+      subTitle:'',
       carouselImg2,
       carouselImg3,
       carouselImg4,
@@ -301,6 +307,19 @@ export default {
         // font-weight: normal;
         color: black;
         letter-spacing: 1px;
+      }
+    }
+    .header{
+      display: flex;
+      .author{
+        .niname{
+          font-size: 16px;
+          margin: 0 0 3px 0;
+        }
+        .email{
+          font-size: 12px;
+          color: #78909c;
+        }
       }
     }
     .bottom-msg{
