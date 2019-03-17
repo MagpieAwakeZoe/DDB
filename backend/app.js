@@ -15,6 +15,7 @@ var commentRouter = require('./routes/comment');
 var storyRouter = require('./routes/story');
 var scommentRouter = require('./routes/scomment');
 var collectionRouter = require('./routes/collection');
+var focusRouter = require('./routes/focus');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/comment', commentRouter);
 app.use('/story', storyRouter);
 app.use('/scomment', scommentRouter);
 app.use('/collection', collectionRouter);
+app.use('/focus', focusRouter);
 
 
 // catch 404 and forward to error handler

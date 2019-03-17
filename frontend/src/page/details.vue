@@ -99,7 +99,7 @@ export default {
             content: this.textarea
           }
         }).then( res =>{
-          console.log(res);
+          // console.log(res);
         })
         this.renderComment();
         this.renderCommentNum();
@@ -121,7 +121,7 @@ export default {
           commentsNum: this.comments.length + 1
         }
       }).then( res => {
-        console.log(res);
+        // console.log(res);
       })
     },
     collect (e) {
@@ -140,7 +140,7 @@ export default {
           collectionNum: this.collectionNum
         }
       }).then( res => {
-        console.log(res);
+        // console.log(res);
       });
       //存入收藏数据集
       this.axios({
@@ -148,7 +148,7 @@ export default {
         url:'http://localhost:3000/collection/data',
         data: this.page_detail
       }).then( res => {
-        console.log(res);
+        // console.log(res);
       })
     },
     thumb () {
@@ -162,7 +162,7 @@ export default {
           thumbsNum: this.thumbsNum
         }
       }).then( res => {
-        console.log(res);
+        // console.log(res);
       })
     }
   },

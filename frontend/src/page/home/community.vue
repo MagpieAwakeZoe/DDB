@@ -47,8 +47,9 @@
       </mu-tabs>
       <div class="tab-text tab0" v-if="active1 === 0">
         <div class="new">
-        <mu-card @click="details(value)" class="card" v-for="(value,index) in newPage" :key="index">
+        <mu-card class="card" v-for="(value,index) in newPage" :key="index">
           <mu-card-header class="header">
+            <div style="display:flex">
             <mu-avatar slot="avatar">
               <img src="../../assets/images/avat.jpg">
             </mu-avatar>
@@ -56,12 +57,16 @@
               <div class="niname">{{value.niname}}</div>
               <div class="email">{{value.author}}</div>
             </div>
+            </div>
+            <div class="focus" @click="focus(value)">
+              <span style="color:#fff">+</span>关注
+            </div>
           </mu-card-header>
           <!-- TODO:timeago控件 -->
           <div class="timer">
             <p>一个月前</p>
           </div>
-          <mu-card-text style="margin-top:-4%;font-size:13px;">
+          <mu-card-text style="margin-top:-4%;font-size:13px;" @click="details(value)">
             {{value.content}}
           </mu-card-text>
           <div class="user-tag">
@@ -72,8 +77,27 @@
         </mu-card>
         </div>
       </div>
-      <div class="tab-text tab1" v-if="active1 === 1">
-        <p>还没有关注哦！</p>
+      <div class="tab-text" v-if="active1 === 1">
+        <!-- <template v-if="focusList.length === 0">
+          <div class="tab1">
+          <p>还没有关注哦！</p>
+          </div>
+        </template> -->
+        <template>
+          <div class="focusList">
+              <mu-list style="background:red">
+                <mu-list-item button :ripple="false" class="mu-li">
+                  <mu-list-item-action>
+                    <mu-icon value="account_box"></mu-icon>
+                  </mu-list-item-action>
+                  <mu-list-item-title>个人中心</mu-list-item-title>
+                  <mu-list-item-action>
+                    <div style="font-size:14px;">取消关注</div>
+                  </mu-list-item-action>
+                </mu-list-item>
+              </mu-list>
+          </div>
+        </template>
       </div>
       <div class="tab-text tab2" v-if="active1 === 2">
         <p>“不，这泪水……是因为勇气，因为力量，因为信任，……你不会懂的！”</p>
@@ -133,8 +157,9 @@ export default {
       isSelected3:false,
       isSelected4:false,
       //最新日记
-      newPage:[],
-      newStory:[]
+      newPage: [],
+      newStory: [],
+      focusList: []
 
     };
   },
@@ -184,6 +209,19 @@ export default {
       this.$router.push({
         path: '/storyDetails'
       });
+    },
+    focus (value) {
+      // console.log(value);
+      this.axios({
+      method:'post',
+      url:'http://localhost:3000/focus/data',
+      data: {
+        niname: value.niname,
+        user_id: value.user_id
+      }
+    }).then( res => {
+      console.log(res);
+    })
     }
   },
   mounted () {
@@ -311,6 +349,7 @@ export default {
     }
     .header{
       display: flex;
+      justify-content: space-between;
       .author{
         .niname{
           font-size: 16px;
@@ -320,6 +359,19 @@ export default {
           font-size: 12px;
           color: #78909c;
         }
+      }
+      .focus{
+        font-size: 12px;
+        width: 60px;
+        height: 22px;
+        background: #03a9f4;
+        line-height: 22px;
+        border-radius: 6px;
+        margin: 10px 0 0 0px;
+        text-align: center;
+        color: white;
+        border: 1px solid #cccccc;
+        letter-spacing: 2px;
       }
     }
     .bottom-msg{
