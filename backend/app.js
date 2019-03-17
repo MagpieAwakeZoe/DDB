@@ -14,6 +14,7 @@ var diaryRouter = require('./routes/diary');
 var commentRouter = require('./routes/comment');
 var storyRouter = require('./routes/story');
 var scommentRouter = require('./routes/scomment');
+var collectionRouter = require('./routes/collection');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/diary', diaryRouter);
 app.use('/comment', commentRouter);
 app.use('/story', storyRouter);
 app.use('/scomment', scommentRouter);
+app.use('/collection', collectionRouter);
 
 
 // catch 404 and forward to error handler

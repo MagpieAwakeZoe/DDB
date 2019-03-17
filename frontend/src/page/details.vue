@@ -141,6 +141,14 @@ export default {
         }
       }).then( res => {
         console.log(res);
+      });
+      //存入收藏数据集
+      this.axios({
+        method:'post',
+        url:'http://localhost:3000/collection/data',
+        data: this.page_detail
+      }).then( res => {
+        console.log(res);
       })
     },
     thumb () {
@@ -161,6 +169,7 @@ export default {
   mounted () {
     this.page_detail = JSON.parse(localStorage.getItem('page_detail'));
     this.page_id = JSON.parse(localStorage.getItem('page_detail'))._id;
+    // console.log(this.page_detail);
     this.renderComment();
     this.collectionNum = this.page_detail.collectionNum;
     this.commentsNum = this.page_detail.commentsNum;
