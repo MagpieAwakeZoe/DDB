@@ -4,7 +4,7 @@
       <mu-icon value="arrow_back" class="mu-icon" @click="goBack"></mu-icon>
       <span>个人资料</span>
       <!-- <mu-icon value="star" class="mu-icon" style="visibility:hidden;"></mu-icon> -->
-      <span style="padding-right:6%;color:#2196f3">完成</span>
+      <span style="padding-right:6%;color:#2196f3" @click="finish">完成</span>
     </header>
     <div id="main">
       <mu-container>
@@ -16,13 +16,13 @@
             <mu-text-field v-model="form.sex"></mu-text-field>
           </mu-form-item>
           <mu-form-item prop="date" label="生日">
-            <mu-date-input v-model="form.date" type="dateTime" actions></mu-date-input>
+            <mu-date-input v-model="form.birthday" type="dateTime" actions></mu-date-input>
           </mu-form-item>
           <mu-form-item prop="input" label="地区">
             <mu-text-field v-model="form.area"></mu-text-field>
           </mu-form-item>
           <mu-form-item prop="textarea" label="简介">
-            <mu-text-field multi-line :rows="3" :rows-max="6" v-model="form.textarea"></mu-text-field>
+            <mu-text-field multi-line :rows="3" :rows-max="6" v-model="form.Introduction"></mu-text-field>
           </mu-form-item>
         </mu-form>
       </mu-container>
@@ -37,16 +37,46 @@ export default {
       form: {
         niname: '',
         sex: '',
-        date: '',
+        birthday: '',
         area: '',
-        textarea: ''
+        Introduction: ''
       }
     };
   },
   methods: {
     goBack () {
       this.$router.go(-1);
+    },
+    finish () {
+      const user_id = this.$store.state.user_id;
+      // console.log(user_id);
+      // console.log(this.form);
+      this.axios({
+        method:'put',
+        url:'http://localhost:3000/regist/data/'+ user_id,
+        data:{
+          niname: this.form.niname,
+          sex: this.form.sex,
+          birthday: this.form.birthday,
+          area: this.form.area,
+          Introduction: this.form.Introduction
+        }
+      }).then( res => {
+        console.log(res);
+      });
     }
+  },
+  mounted () {
+    //展示个人资料
+        const user_id = this.$store.state.user_id;
+        // console.log(user_id);
+        this.axios({
+          method:'get',
+          url:'http://localhost:3000/regist/gainPage?user_id=' + user_id,
+        }).then( res => {
+          this.form = res.data;
+          // console.log(this.form);
+        })
   }
 };
 </script>

@@ -90,3 +90,11 @@ exports.userLogin = function (req, res, next) {
         }
     });
 };
+
+//查询到用户信息
+exports.gainPage = function(req, res, next) {
+    const {user_id} = req.query
+    Regist.findOne({_id:user_id}).then(data => {
+        res.json(data);
+    })
+};
