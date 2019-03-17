@@ -14,8 +14,8 @@
     <mu-icon size="26" value="cancel" color="orange" class="close-icon" @click="goBack"></mu-icon>
       <div class="diary-type">
         <mu-scale-transition><div class="mu-transition-box mu-primary-color mu-inverse" v-show="show"><div class="text-diary diary" @click="moveToText"><mu-icon value="note_add" size="36" color="#fff" class="icon"></mu-icon></div><p>文本日记</p></div></mu-scale-transition>
-        <mu-scale-transition><div class="mu-transition-box mu-primary-color mu-inverse" v-show="show"><div class="image-diary diary"><mu-icon value="image" size="36" color="#fff" class="icon"></mu-icon></div><p>图片日记</p></div></mu-scale-transition>
-        <mu-scale-transition><div class="mu-transition-box mu-primary-color mu-inverse" v-show="show"><div class="share diary"><mu-icon value="book" size="36" color="#fff" class="icon"></mu-icon></div><p>开启故事</p></div></mu-scale-transition>
+        <mu-scale-transition><div class="mu-transition-box mu-primary-color mu-inverse" v-show="show"><div class="image-diary diary"><mu-icon value="mood" size="36" color="#fff" class="icon"></mu-icon></div><p>我的心情</p></div></mu-scale-transition>
+        <mu-scale-transition><div class="mu-transition-box mu-primary-color mu-inverse" v-show="show"><div class="share diary"  @click="writeStory"><mu-icon value="book" size="36" color="#fff" class="icon"></mu-icon></div><p>开启故事</p></div></mu-scale-transition>
       </div>
   </div>
 </template>
@@ -43,6 +43,9 @@ export default {
     },
     moveToText () {
       this.$router.push('/textDiary');
+    },
+    writeStory () {
+      this.$router.push('/story');
     }
   }
 }

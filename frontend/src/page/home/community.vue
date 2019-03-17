@@ -79,24 +79,23 @@
       </div>
       <div class="tab-text tab3" v-if="active1 === 3">
         <div class="new">
-        <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
-          <mu-card-header title="Myron Avatar" sub-title="sub title">
-            <mu-avatar slot="avatar">
-              <img src="../../assets/images/avat.jpg">
-            </mu-avatar>
-          </mu-card-header>
-          <!-- TODO:timeago控件 -->
-          <div class="timer">
-            <h3>身边的佼佼者</h3>
+          <div class="story" @click="storyDetails(story)" v-for="(story,index1) in newStory" :key="index1">
+            <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
+              <mu-card-header title="Myron Avatar" sub-title="sub title">
+                <mu-avatar slot="avatar">
+                  <img src="../../assets/images/avat.jpg">
+                </mu-avatar>
+              </mu-card-header>
+              <!-- TODO:timeago控件 -->
+              <div class="timer">
+                <h3>{{story.title}}</h3>
+              </div>
+              <mu-card-text style="margin-top:-4%;font-size:13px;">
+                {{story.content}}
+              </mu-card-text>
+              <p class="bottom-msg">已有239人阅读&emsp;&emsp;{{story.commentsNum}}评论&emsp;&emsp;&emsp;故事写于{{story.time.year}}年{{story.time.month}}月{{story.time.day}}日</p>
+            </mu-card>
           </div>
-          <mu-card-text style="margin-top:-4%;font-size:13px;">
-            散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
-            调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
-            似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，
-            找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！
-          </mu-card-text>
-          <p class="bottom-msg">已有239人阅读&emsp;&emsp;0评论&emsp;&emsp;&emsp;故事写于2019年02月10日</p>
-        </mu-card>
         </div>
       </div>
     </mu-container>
@@ -127,8 +126,10 @@ export default {
       isSelected2:false,
       isSelected3:false,
       isSelected4:false,
-      //最新
-      newPage:[]
+      //最新日记
+      newPage:[],
+      newStory:[]
+
     };
   },
   methods: {
@@ -164,11 +165,18 @@ export default {
     toSearch () {
       this.$router.push('/search');
     },
-    details (value) {
+     details (value) {
       // 存储到本地
       localStorage.setItem('page_detail',JSON.stringify(value));
       this.$router.push({
         path: '/details'
+      });
+    },
+    storyDetails (story) {
+      // 存储到本地
+      localStorage.setItem('story_detail',JSON.stringify(story));
+      this.$router.push({
+        path: '/storyDetails'
       });
     }
   },
@@ -178,7 +186,17 @@ export default {
       url:'http://localhost:3000/diary/gainData'
     }).then( res => {
       this.newPage = res.data;
-      console.log(this.newPage);
+      // console.log(this.newPage);
+    })
+
+
+    //获取故事
+    this.axios({
+      method:'get',
+      url:'http://localhost:3000/story/gainData'
+    }).then( res => {
+      this.newStory = res.data;
+      // console.log(this.newStory);
     })
   }
 };

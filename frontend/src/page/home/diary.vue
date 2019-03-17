@@ -1,102 +1,23 @@
 <template>
   <div class="pg-diary">
     <div class="container">
-      <div class="story">
+      <div class="story" v-for="(item,index) in myDiary" :key="index">
         <div class="date">
-         <p style="font-size:18px;">28</p>
-         <p>二月</p>
+         <p style="font-size:18px;">{{item.time.day}}</p>
+         <p>{{item.time.month}}月</p>
         </div>
         <div class="content">
            <div class="page">
              <div class="middle">
                <div style="padding:15px;">
-                 <p class="title">标题</p>
-                 <p class="diary">日记内容</p>
+                 <p class="title">{{item.title}}</p>
+                 <p class="diary">{{item.content}}</p>
                </div>
              </div>
            </div>
         </div>
       </div>
-      <div class="story">
-        <div class="date">
-         <p style="font-size:18px;">28</p>
-         <p>二月</p>
-        </div>
-        <div class="content">
-           <div class="page">
-             <div class="middle">
-               <div style="padding:15px;">
-                 <p class="title">标题</p>
-                 <p class="diary">日记内容</p>
-               </div>
-             </div>
-           </div>
-        </div>
-      </div>
-      <div class="story">
-        <div class="date">
-         <p style="font-size:18px;">28</p>
-         <p>二月</p>
-        </div>
-        <div class="content">
-           <div class="page">
-             <div class="middle">
-               <div style="padding:15px;">
-                 <p class="title">标题</p>
-                 <p class="diary">日记内容</p>
-               </div>
-             </div>
-           </div>
-        </div>
-      </div>
-      <div class="story">
-        <div class="date">
-         <p style="font-size:18px;">28</p>
-         <p>二月</p>
-        </div>
-        <div class="content">
-           <div class="page">
-             <div class="middle">
-               <div style="padding:15px;">
-                 <p class="title">标题</p>
-                 <p class="diary">日记内容</p>
-               </div>
-             </div>
-           </div>
-        </div>
-      </div>
-      <div class="story">
-        <div class="date">
-         <p style="font-size:18px;">28</p>
-         <p>二月</p>
-        </div>
-        <div class="content">
-           <div class="page">
-             <div class="middle">
-               <div style="padding:15px;">
-                 <p class="title">标题</p>
-                 <p class="diary">日记内容</p>
-               </div>
-             </div>
-           </div>
-        </div>
-      </div>
-      <div class="story">
-        <div class="date">
-         <p style="font-size:18px;">28</p>
-         <p>二月</p>
-        </div>
-        <div class="content">
-           <div class="page">
-             <div class="middle">
-               <div style="padding:15px;">
-                 <p class="title">标题</p>
-                 <p class="diary">日记内容</p>
-               </div>
-             </div>
-           </div>
-        </div>
-      </div>
+      <div class="place_block"></div>
     </div>
   </div>
 </template>
@@ -109,6 +30,21 @@ export default {
               type: Boolean,
               default: false
           }
+  },
+  data () {
+    return {
+      myDiary:[]
+    }
+  },
+  mounted () {
+    const user_id = this.$store.state.user_id;
+    this.axios({
+      method:'get',
+      url:'http://localhost:3000/diary/gainPage?user_id='+user_id,
+    }).then( res => {
+      this.myDiary = res.data;
+      console.log(this.myDiary);
+    })
   }
 }
 </script>
@@ -152,6 +88,9 @@ export default {
           }
         }
       }
+    }
+    .place_block{
+      height: 55px;
     }
   }
 </style>

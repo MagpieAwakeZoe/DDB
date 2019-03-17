@@ -5,12 +5,12 @@ var  schema = new mongoose.Schema({
   author: String,
   user_id: String,
   // user_id: {type: Schema.Types.ObjectId },
-  // time:{
-  //   year:String,
-  //   month:String,
-  //   day:String,
-  //   hour:String
-  // },
+  time:{
+    year:String,
+    month:String,
+    day:String,
+    hour:String
+  },
   thumbsNum:{
     type:String,
     default:0       //点赞数

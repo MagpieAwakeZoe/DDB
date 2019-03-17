@@ -118,7 +118,7 @@ export default {
         method:'put',
         url:'http://localhost:3000/diary/data/'+this.page_id,
         data:{
-          commentsNum: this.comments.length
+          commentsNum: this.comments.length + 1
         }
       }).then( res => {
         console.log(res);

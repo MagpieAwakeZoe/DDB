@@ -49,9 +49,8 @@ export default {
             author:this.pageMsg.author,
             title:this.pageMsg.title,
             content:this.pageMsg.content,
-            user_id:this.pageMsg.user_id
-            // time:this.pageMsg.time
-
+            user_id:this.pageMsg.user_id,
+            time:this.pageMsg.time
           }
         })
     }
@@ -64,7 +63,6 @@ export default {
     this.pageMsg.time.month = this.$store.state.time.month;
     this.pageMsg.time.day = this.$store.state.time.day;
     this.pageMsg.time.hour = this.$store.state.time.hour;
-    // console.log(this.pageMsg);
   }
 }
 </script>

@@ -85,5 +85,15 @@ export default [
     path:'/setTime',
     name:'时间设置',
     component:resolve => require(['@/page/setTime'], resolve)
+  },
+  {
+    path:'/story',
+    name:'写故事',
+    component:resolve => require(['@/page/write-story'], resolve)
+  },
+  {
+    path:'/storyDetails',
+    name:'写故事',
+    component:resolve => require(['@/page/storyDetails'], resolve)
   }
 ]
