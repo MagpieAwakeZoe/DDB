@@ -95,5 +95,10 @@ export default [
     path:'/storyDetails',
     name:'写故事',
     component:resolve => require(['@/page/storyDetails'], resolve)
+  },
+  {
+    path:'/focusDetails',
+    name:'关注内容',
+    component:resolve => require(['@/page/focusDetails'], resolve)
   }
 ]

@@ -78,21 +78,23 @@
         </div>
       </div>
       <div class="tab-text" v-if="active1 === 1">
-        <!-- <template v-if="focusList.length === 0">
+        <template v-if="focusList.length === 0">
           <div class="tab1">
           <p>还没有关注哦！</p>
           </div>
-        </template> -->
-        <template>
-          <div class="focusList">
-              <mu-list style="background:red">
-                <mu-list-item button :ripple="false" class="mu-li">
+        </template>
+        <template v-if="focusList.length >= 1">
+          <div class="focusList" v-for="(value,index) in focusList" :key="index">
+              <mu-list>
+                <mu-list-item button :ripple="false" class="mu-li" @click="focusDetails(value)">
                   <mu-list-item-action>
-                    <mu-icon value="account_box"></mu-icon>
+                    <mu-avatar>
+                      <img src="../../assets/images/avat.jpg">
+                    </mu-avatar>
                   </mu-list-item-action>
-                  <mu-list-item-title>个人中心</mu-list-item-title>
+                  <mu-list-item-title>{{value.niname}}</mu-list-item-title>
                   <mu-list-item-action>
-                    <div style="font-size:14px;">取消关注</div>
+                    <div style="font-size:14px;" @click="focusOff(value)">取消关注</div>
                   </mu-list-item-action>
                 </mu-list-item>
               </mu-list>
@@ -135,6 +137,9 @@ import carouselImg2 from "@/assets/images/carousel4.png";
 import carouselImg3 from "@/assets/images/carousel5.png";
 import carouselImg4 from "@/assets/images/carousel6.png";
 import carouselImg5 from "@/assets/images/carousel7.png";
+import Vue from 'vue'
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   name: 'Community',
   props: {
@@ -210,8 +215,22 @@ export default {
         path: '/storyDetails'
       });
     },
+    gainFocus () {
+      //获取关注
+      const user_id = this.$store.state.user_id;
+      this.axios({
+        method:'get',
+        url:'http://localhost:3000/focus/gainPage?user_id='+user_id,
+      }).then( res => {
+        this.focusList = res.data;
+      })
+    },
     focus (value) {
-      // console.log(value);
+      this.$alert('已关注', '提示', {
+        okLabel: '知道了'
+      }).then(() => {
+        this.$toast.message('提示信息');
+      });
       this.axios({
       method:'post',
       url:'http://localhost:3000/focus/data',
@@ -222,6 +241,20 @@ export default {
     }).then( res => {
       console.log(res);
     })
+    },
+    focusOff (value) {
+      this.axios({
+        method:'delete',
+        url:'http://localhost:3000/focus/data/'+value._id,
+      }).then( res => {
+        // console.log(res);
+      });
+      this.gainFocus();
+    },
+    focusDetails (value) {
+      // console.log(value);
+      localStorage.setItem('focus_id',value.user_id);
+      this.$router.push('/focusDetails');
     }
   },
   mounted () {
@@ -242,6 +275,8 @@ export default {
       this.newStory = res.data;
       // console.log(this.newStory);
     })
+
+    this.gainFocus();
   }
 };
 </script>

@@ -70,7 +70,7 @@ export default {
       .content{
         float: left;
         // background: aqua;
-        min-width: 70%;
+        width: 70%;
         border-left: 1px dashed #cccccc;
         .page{
           padding: 8%;
