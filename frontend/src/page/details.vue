@@ -128,7 +128,7 @@ export default {
       this.$alert('已收藏', '提示', {
         okLabel: '知道了'
       }).then(() => {
-        this.$toast.message('提示信息');
+        // this.$toast.message('提示信息');
       });
       this.flag = false;
       this.starColor = "#fbc02d";

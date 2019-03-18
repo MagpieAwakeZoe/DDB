@@ -7,93 +7,99 @@
     </header>
     <div id="main">
       <div class="impress-co">
-
+        <div class="life impress">
+          <div class="container m1" id="select">
+            <mu-chip class="demo-chip" color="#ffe082"  v-for="(value,index) in AllSectionB" :key="index">{{value}}</mu-chip>
+          </div>
+        </div>
       </div>
-      <div class="life impress">
+      <div class="life impress" @click="section1">
         <div class="container m1">
-          <mu-chip class="demo-chip" color="#fce4ec">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="吃货">吃货</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#fce4ec">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">充满爱心</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="积极向上">积极向上</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="自信满满">自信满满</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="充满爱心">充满爱心</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#fce4ec">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="吃货">吃货</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#fce4ec">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">充满爱心</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="积极向上">积极向上</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="自信满满">自信满满</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="充满爱心">充满爱心</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#fce4ec">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="吃货">吃货</mu-chip>
         </div>
       </div>
-      <div class="community impress">
+      <div class="community impress" @click="section1">
          <div class="container m2">
-           <mu-chip class="demo-chip" color="#e3f2fd">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">吃货</mu-chip>
+           <!-- #e3f2fd -->
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="吃货">吃货</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">充满爱心</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="积极向上">积极向上</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自信满满">自信满满</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="充满爱心">充满爱心</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="吃货">吃货</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">充满爱心</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="积极向上">积极向上</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自信满满">自信满满</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="充满爱心">充满爱心</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="吃货">吃货</mu-chip>
         </div>
       </div>
-      <div class="work impress">
+      <div class="work impress" @click="section1">
          <div class="container m3">
-           <mu-chip class="demo-chip" color="#dcedc8">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">吃货</mu-chip>
+           <!-- #dcedc8 -->
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="吃货">吃货</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">充满爱心</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="积极向上">积极向上</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="自信满满">自信满满</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="充满爱心">充满爱心</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="吃货">吃货</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">充满爱心</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="积极向上">积极向上</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="自信满满">自信满满</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index=">充满爱心">充满爱心</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="乐观">乐观</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="正义">正义</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="独立">独立</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="吃货">吃货</mu-chip>
         </div>
       </div>
     </div>
@@ -104,11 +110,32 @@
 export default {
   data() {
     return {
+      AllSection: [],
+      AllSectionB: []
     };
   },
   methods: {
+    //去重
+    uniq(array){
+    var temp = []; //一个新的临时数组
+    for(var i = 0; i < array.length; i++){
+        if(temp.indexOf(array[i]) == -1){
+            temp.push(array[i]);
+        }
+    }
+    return temp;
+    },
     goBack () {
       this.$router.go(-1);
+    },
+    section1 (e) {
+      let dom = e.target;
+      let index = dom.getAttribute("data-index");
+      if (index != null && this.AllSectionB.length < 7) {
+        this.AllSection.push(index);
+        this.AllSectionB = this.uniq(this.AllSection);
+        console.table(this.AllSectionB);
+      }
     }
   }
 };
@@ -149,6 +176,16 @@ body {
         height: 100px;
         background: #eceff1;
         border-radius: 12px;
+        #select{
+          .demo-chip{
+            border: 1px solid #ff8f00;
+
+            margin: -5px 3px 15px 0;
+          }
+          .mu-inverse{
+            color: #f57c00;
+          }
+        }
     }
       .life{
         // background: aqua;

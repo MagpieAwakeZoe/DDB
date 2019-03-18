@@ -229,7 +229,7 @@ export default {
       this.$alert('已关注', '提示', {
         okLabel: '知道了'
       }).then(() => {
-        this.$toast.message('提示信息');
+        // this.$toast.message('提示信息');
       });
       this.axios({
       method:'post',
