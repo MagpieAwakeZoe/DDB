@@ -5,6 +5,8 @@
         <div class="date">
          <p style="font-size:18px;">{{item.time.day}}</p>
          <p>{{item.time.month}}月</p>
+         <br>
+         <mu-icon value="delete" color="#607d8b" size="30" @click="deleteDiary(item)"></mu-icon>
         </div>
         <div class="content">
            <div class="page">
@@ -23,6 +25,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   name: 'Diary',
   props: {
@@ -36,15 +41,48 @@ export default {
       myDiary:[]
     }
   },
-  mounted () {
-    const user_id = this.$store.state.user_id;
-    this.axios({
-      method:'get',
-      url:'http://localhost:3000/diary/gainPage?user_id='+user_id,
+  methods: {
+    deleteDiary (item) {
+      // Message.confirm('是否要删除 ？', '提示');
+      //删除该用户数据库里的那条记录
+      this.axios({
+        method:'delete',
+        url:'http://localhost:3000/diary/data/' + item._id,
+      }).then( res => {
+        console.log(res);
+      });
+      //重新渲染
+      this.gainMyDiary();
+
+      //将删除的数据添加到回收站数据库
+      this.axios({
+      method:'post',
+      url:'http://localhost:3000/rubbish/data',
+      data: {
+        title: item.title,
+        content: item.content,
+        user_id: item.user_id
+      }
     }).then( res => {
-      this.myDiary = res.data;
-      // console.log(this.myDiary);
+      console.log(res);
     })
+
+
+    },
+    //获取本机用户的日记
+    gainMyDiary () {
+      const user_id = this.$store.state.user_id;
+      this.axios({
+        method:'get',
+        url:'http://localhost:3000/diary/gainPage?user_id=' + user_id,
+      }).then( res => {
+        this.myDiary = res.data;
+        // console.log(this.myDiary);
+      })
+    }
+  },
+  mounted () {
+    this.gainMyDiary();
   }
 }
 </script>

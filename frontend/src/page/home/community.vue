@@ -41,7 +41,7 @@
       >
         <mu-tab class="tab-cell" :class="{bigfont:isSelected1}" ref="last" @click="titleFocus1">最新</mu-tab>
         <mu-tab class="tab-cell" :class="{bigfont:isSelected2}" ref="focus" @click="titleFocus2">关注</mu-tab>
-        <mu-tab class="tab-cell" :class="{bigfont:isSelected3}" ref="sift" @click="titleFocus3">精选</mu-tab>
+        <mu-tab class="tab-cell" :class="{bigfont:isSelected3}" ref="sift" @click="titleFocus3">心情</mu-tab>
         <mu-tab class="tab-cell" :class="{bigfont:isSelected4}" ref="story" @click="titleFocus4">故事</mu-tab>
         <mu-icon size="26" value="search" class="search" @click="toSearch"></mu-icon>
       </mu-tabs>
@@ -102,10 +102,25 @@
         </template>
       </div>
       <div class="tab-text tab2" v-if="active1 === 2">
-        <p>“不，这泪水……是因为勇气，因为力量，因为信任，……你不会懂的！”</p>
-        <p>“我不会帮你，想要什么样的未来……自己去追寻吧！”</p>
-        <p>“我不需要你的帮忙！未来我会一手开启，什么样的敌人我也不会惧怕……还有，其实我们可以成为朋友的……”</p>
-        <p>“也许吧，未来……给你了。”</p>
+        <div class="new">
+          <div class="story" @click="storyDetails(story)" v-for="(story,index2) in newMood" :key="index2">
+            <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
+              <mu-card-header title="Myron Avatar" sub-title="sub title">
+                <mu-avatar slot="avatar">
+                  <img src="../../assets/images/avat.jpg">
+                </mu-avatar>
+              </mu-card-header>
+              <!-- TODO:timeago控件 -->
+              <div class="timer">
+                <!-- <h3>{{story.title}}</h3> -->
+              </div>
+              <mu-card-text style="margin-top:-4%;font-size:13px;">
+                {{story.content}}
+              </mu-card-text>
+              <!-- <p class="bottom-msg">已有239人阅读&emsp;&emsp;{{story.commentsNum}}评论&emsp;&emsp;&emsp;故事写于{{story.time.year}}年{{story.time.month}}月{{story.time.day}}日</p> -->
+            </mu-card>
+          </div>
+        </div>
       </div>
       <div class="tab-text tab3" v-if="active1 === 3">
         <div class="new">
@@ -164,6 +179,7 @@ export default {
       //最新日记
       newPage: [],
       newStory: [],
+      newMood: [],
       focusList: []
       // timer: null,
       // alarmTime: '',
@@ -261,6 +277,7 @@ export default {
     }
   },
   mounted () {
+    //获取日记
     this.axios({
       method:'get',
       url:'http://localhost:3000/diary/gainData'
@@ -280,6 +297,15 @@ export default {
     })
 
     this.gainFocus();
+
+    //获取心情
+    this.axios({
+      method:'get',
+      url:'http://localhost:3000/mood/gainData'
+    }).then( res => {
+      this.newMood = res.data;
+      console.log(this.newMood);
+    })
   },
   distroyed () {
 　　clearInterval(this.timer)

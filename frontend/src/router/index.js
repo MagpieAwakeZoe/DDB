@@ -100,5 +100,10 @@ export default [
     path:'/focusDetails',
     name:'关注内容',
     component:resolve => require(['@/page/focusDetails'], resolve)
+  },
+  {
+    path:'/writeMyMood',
+    name:'记录心情',
+    component:resolve => require(['@/page/write-mood'], resolve)
   }
 ]

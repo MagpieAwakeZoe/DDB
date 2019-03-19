@@ -26,9 +26,9 @@ export default {
     setTimer () {
       let timeDiffPlus = Math.abs(this.alarmTime - this.nowAllSecond);
       let timeDiffMinus = 86400 - timeDiffPlus;
-      console.log(timeDiffPlus);
-      console.log(timeDiffMinus);
-      console.log(this.alarmTime >= this.nowAllSecond);
+      // console.log(timeDiffPlus);
+      // console.log(timeDiffMinus);
+      // console.log(this.alarmTime >= this.nowAllSecond);
       if (this.alarmTime >= this.nowAllSecond) {
         clearInterval(this.timer);
         this.timer = setTimeout(()=>{
@@ -49,8 +49,8 @@ export default {
     let nowMinute = now.getMinutes();
     let nowSecond = now.getSeconds();
     this.nowAllSecond = nowHour * 3600 + nowMinute * 60 + nowSecond;
-    console.log(this.nowAllSecond);
-    console.log(this.alarmTime);
+    // console.log(this.nowAllSecond);
+    // console.log(this.alarmTime);
     //定时提醒
     clearInterval(this.timer);
     this.setTimer();

@@ -2,7 +2,7 @@
   <div class="pg-search">
     <mu-container>
       <mu-paper class="demo-paper" :z-depth="1">
-
+        
       </mu-paper>
     </mu-container>
   </div>
