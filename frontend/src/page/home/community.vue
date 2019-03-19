@@ -165,6 +165,9 @@ export default {
       newPage: [],
       newStory: [],
       focusList: []
+      // timer: null,
+      // alarmTime: '',
+      // nowAllSecond: ''
 
     };
   },
@@ -277,6 +280,9 @@ export default {
     })
 
     this.gainFocus();
+  },
+  distroyed () {
+　　clearInterval(this.timer)
   }
 };
 </script>

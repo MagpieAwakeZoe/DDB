@@ -4,10 +4,10 @@
       <div class="bg">
         <div class="letter">
           <div class="title">
-            <p><input type="text" placeholder="输入标题"></p>
+            <p><input type="text" placeholder="输入标题" v-model="futureMail.title"></p>
           </div>
           <div class="content">
-            <p><textarea name="" id="" cols="30" rows="10" placeholder="写点什么吧"></textarea></p>
+            <p><textarea name="" id="" cols="30" rows="10" placeholder="写点什么吧" v-model="futureMail.content"></textarea></p>
           </div>
         </div>
       </div>
@@ -15,9 +15,9 @@
     <div class="footer">
       <mu-icon value="arrow_back" class="mu-icon" @click="goBack"></mu-icon>
       <div class="time">
-        <mu-date-input  icon="today" v-model="date" type="dateTime" label-float full-width landscape></mu-date-input>
+        <mu-date-input  icon="today" v-model="futureMail.date" type="dateTime" label-float full-width landscape></mu-date-input>
       </div>
-      <div class="save">发送</div>
+      <div class="save" @click="sendMail">发送</div>
     </div>
   </div>
 </template>
@@ -26,12 +26,19 @@
 export default {
   data() {
     return {
-        date:''
+      futureMail: {
+        date: '',
+        title: '',
+        content: ''
+      }
     };
   },
   methods: {
     goBack () {
       this.$router.go(-1);
+    },
+    sendMail () {
+      console.log(this.futureMail.date);
     }
   }
 };

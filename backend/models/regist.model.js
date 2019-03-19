@@ -22,7 +22,7 @@ var  schema = new mongoose.Schema({
   Introduction: { 
     type:String,
     default:0       
-  }, 
+  } 
 });
 
 

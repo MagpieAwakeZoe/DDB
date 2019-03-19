@@ -134,8 +134,11 @@ export default {
       if (index != null && this.AllSectionB.length < 7) {
         this.AllSection.push(index);
         this.AllSectionB = this.uniq(this.AllSection);
-        console.table(this.AllSectionB);
+        // console.table(this.AllSectionB);
       }
+      localStorage.setItem('impression',this.AllSectionB);
+      // console.log(localStorage.getItem('impression'));
+
     }
   }
 };

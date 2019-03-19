@@ -3,7 +3,7 @@
     <header>
       <mu-icon value="arrow_back" class="mu-icon" @click="goBack"></mu-icon>
       <span>设置时间</span>
-      <span style="padding-right:6%;color:#2196f3">完成</span>
+      <span style="padding-right:6%;color:#2196f3" @click="saveTime">完成</span>
     </header>
     <div id="main">
       <mu-container>
@@ -31,6 +31,14 @@ export default {
   methods: {
     goBack () {
       this.$router.go(-1);
+    },
+    saveTime () {
+
+      const Shour = this.time.getHours();
+      const Sminute = this.time.getMinutes();
+      const Ssecond = this.time.getSeconds();
+      const allSecond = Shour * 3600 + Sminute * 60 + Ssecond;
+      localStorage.setItem('alarmTime',allSecond);
     }
   }
 };
