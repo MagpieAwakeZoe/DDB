@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     deleteDiary (item) {
-      // Message.confirm('是否要删除 ？', '提示');
+      Message.alert('删除完成', '提示');
       //删除该用户数据库里的那条记录
       this.axios({
         method:'delete',

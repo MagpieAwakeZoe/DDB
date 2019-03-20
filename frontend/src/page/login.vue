@@ -55,11 +55,12 @@ export default {
               type: "saveUserName",
               userName: this.formData.email
             });
+
             this.$store.commit({    //登录成功之后把用户id存到store里
               type: "saveUserId",
               user_id: this.user_id
             });
-            // this.$router.push('/community');
+            this.$router.push('/community');
           } else if (this.status === 2) {
             Toast.error('密码输入错误');
           } else if (this.status === 0) {

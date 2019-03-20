@@ -54,6 +54,8 @@ export default {
             email:this.validateForm.email,
             password:this.validateForm.password
           }
+        }).then(()=>{
+          this.$router.push('/login');
         })
       });
     },

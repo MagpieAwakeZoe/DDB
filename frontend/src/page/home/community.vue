@@ -105,10 +105,16 @@
         <div class="new">
           <div class="story" @click="storyDetails(story)" v-for="(story,index2) in newMood" :key="index2">
             <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
-              <mu-card-header title="Myron Avatar" sub-title="sub title">
+              <mu-card-header class="header">
+                <div style="display:flex">
                 <mu-avatar slot="avatar">
                   <img src="../../assets/images/avat.jpg">
                 </mu-avatar>
+                <div class="author">
+                  <div class="niname">{{story.niname}}</div>
+                  <div class="email">{{story.author}}</div>
+                </div>
+                </div>
               </mu-card-header>
               <!-- TODO:timeago控件 -->
               <div class="timer">
@@ -126,10 +132,16 @@
         <div class="new">
           <div class="story" @click="storyDetails(story)" v-for="(story,index1) in newStory" :key="index1">
             <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
-              <mu-card-header title="Myron Avatar" sub-title="sub title">
+              <mu-card-header class="header">
+                <div style="display:flex">
                 <mu-avatar slot="avatar">
                   <img src="../../assets/images/avat.jpg">
                 </mu-avatar>
+                <div class="author">
+                  <div class="niname">{{story.niname}}</div>
+                  <div class="email">{{story.author}}</div>
+                </div>
+                </div>
               </mu-card-header>
               <!-- TODO:timeago控件 -->
               <div class="timer">
@@ -258,7 +270,7 @@ export default {
         user_id: value.user_id
       }
     }).then( res => {
-      console.log(res);
+      // console.log(res);
     })
     },
     focusOff (value) {
@@ -293,7 +305,7 @@ export default {
       url:'http://localhost:3000/story/gainData'
     }).then( res => {
       this.newStory = res.data;
-      // console.log(this.newStory);
+      console.log(this.newStory);
     })
 
     this.gainFocus();
