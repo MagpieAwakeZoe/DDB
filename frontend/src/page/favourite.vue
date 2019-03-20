@@ -155,6 +155,11 @@ body {
           background: #eeeeee;
           margin: 0 auto;
           font-size: 12px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
         }
       }
       .grayblock{

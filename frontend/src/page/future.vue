@@ -7,7 +7,7 @@
             <p><input type="text" placeholder="输入标题" v-model="futureMail.title"></p>
           </div>
           <div class="content">
-            <p><textarea name="" id="" cols="30" rows="10" placeholder="写点什么吧" v-model="futureMail.content"></textarea></p>
+            <p><textarea name="" id="" cols="36" rows="12" placeholder="写点什么吧" v-model="futureMail.content"></textarea></p>
           </div>
         </div>
       </div>
@@ -27,9 +27,15 @@ export default {
   data() {
     return {
       futureMail: {
-        date: '',
+        futureSeconds: '',
         title: '',
-        content: ''
+        content: '',
+        year: '',
+        month: '',
+        day: '',
+        hour: '',
+        minute: '',
+        date: ''
       }
     };
   },
@@ -38,8 +44,21 @@ export default {
       this.$router.go(-1);
     },
     sendMail () {
-      console.log(this.futureMail.date);
+      // console.log(this.futureMail.pastDate);
+      localStorage.setItem('futureLetter',JSON.stringify(this.futureMail));
+      // console.log(this.futureMail.futureSeconds);
+      this.futureMail.futureSeconds = this.futureSeconds = this.futureMail.date.getHours() * 3600 + this.futureMail.date.getMinutes() * 60 + this.futureMail.date.getSeconds();
+      localStorage.setItem('futureTime',this.futureMail.futureSeconds);
+      // console.log(localStorage.getItem('futureTime'));
     }
+  },
+  mounted () {
+    let date = new Date();
+    this.futureMail.year = date.getFullYear();
+    this.futureMail.month = date.getMonth();
+    this.futureMail.day = date.getDate();
+    this.futureMail.hour = date.getHours();
+    this.futureMail.minute = date.getMinutes();
   }
 };
 </script>

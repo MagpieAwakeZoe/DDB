@@ -12,6 +12,9 @@ import carouselImg2 from "@/assets/images/carousel2.jpg";
 import carouselImg3 from "@/assets/images/carousel3.jpg";
 import bottomNav from "@/components/common/bottom-nav.vue"
 import thinLine from "@/components/common/thin-line.vue"
+import Vue from 'vue'
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   data() {
     return {
@@ -21,7 +24,10 @@ export default {
       isSelected1:true,
       isSelected2:false,
       isSelected3:false,
-      isSelected4:false
+      isSelected4:false,
+      nowAllSecond: '',
+      futureTime: '',
+      timer: null
     };
   },
   components: {
@@ -57,7 +63,33 @@ export default {
       this.isSelected3 = false;
       this.isSelected4 = false;
       this.isSelected4 = !this.isSelected4;
+    },
+    setTimer () {
+      console.log(this.futureTime);
+      console.log(this.nowAllSecond);
+      let timeDiffPlus =  this.futureTime - this.nowAllSecond;
+      console.log(timeDiffPlus);
+      if (timeDiffPlus > 0) {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(()=>{
+        Message.alert('您收到一封未来的信', '提示');
+        this.$router.push('/future-letter')
+        },timeDiffPlus * 1000);
+      } else {
+        clearTimeout(this.timer);
+      }
     }
+  },
+  mounted () {
+    let now = new Date();
+    let nowHour = now.getHours();
+    let nowMinute = now.getMinutes();
+    let nowSecond = now.getSeconds();
+    this.nowAllSecond = nowHour * 3600 + nowMinute * 60 + nowSecond;
+    // console.log(this.nowAllSecond);
+    this.futureTime = localStorage.getItem('futureTime');
+    clearTimeout(this.timer);
+    this.setTimer();
   }
 };
 </script>

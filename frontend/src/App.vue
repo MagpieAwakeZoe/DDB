@@ -30,12 +30,12 @@ export default {
       // console.log(timeDiffMinus);
       // console.log(this.alarmTime >= this.nowAllSecond);
       if (this.alarmTime >= this.nowAllSecond) {
-        clearInterval(this.timer);
+        clearTimeout(this.timer);
         this.timer = setTimeout(()=>{
         Toast.message('该写日记了');
         },timeDiffPlus * 1000);
       } else {
-        clearInterval(this.timer);
+        clearTimeout(this.timer);
         this.timer = setTimeout(()=>{
         Toast.message('该写日记了');
       },timeDiffMinus * 1000);
@@ -52,7 +52,7 @@ export default {
     // console.log(this.nowAllSecond);
     // console.log(this.alarmTime);
     //定时提醒
-    clearInterval(this.timer);
+    clearTimeout(this.timer);
     this.setTimer();
   }
 }

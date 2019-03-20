@@ -305,7 +305,7 @@ export default {
       url:'http://localhost:3000/story/gainData'
     }).then( res => {
       this.newStory = res.data;
-      console.log(this.newStory);
+      // console.log(this.newStory);
     })
 
     this.gainFocus();
@@ -316,7 +316,7 @@ export default {
       url:'http://localhost:3000/mood/gainData'
     }).then( res => {
       this.newMood = res.data;
-      console.log(this.newMood);
+      // console.log(this.newMood);
     })
   },
   distroyed () {

@@ -18,6 +18,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   data() {
     return {
@@ -39,6 +42,7 @@ export default {
       const Ssecond = this.time.getSeconds();
       const allSecond = Shour * 3600 + Sminute * 60 + Ssecond;
       localStorage.setItem('alarmTime',allSecond);
+      Message.alert('将在每日的'+Shour+"时"+Sminute+"分"+"提醒", '提示');
     }
   }
 };

@@ -105,5 +105,10 @@ export default [
     path:'/writeMyMood',
     name:'记录心情',
     component:resolve => require(['@/page/write-mood'], resolve)
+  },
+  {
+    path:'/future-letter',
+    name:'未来的信',
+    component:resolve => require(['@/page/future-letter'], resolve)
   }
 ]

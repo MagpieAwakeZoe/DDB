@@ -31,6 +31,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   data() {
     return {
@@ -67,7 +70,8 @@ export default {
           Introduction: this.form.Introduction
         }
       }).then( res => {
-        console.log(res);
+        // console.log(res);
+        Message.confirm('是否保存 ?', '提示');
       });
     }
   },
