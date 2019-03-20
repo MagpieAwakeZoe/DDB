@@ -103,6 +103,7 @@ export default {
         })
         this.renderComment();
         this.renderCommentNum();
+        this.open = false;
     },
     renderComment () {
       //评论页的渲染

@@ -4,6 +4,15 @@
     <div class="finished" @click="finished">完成</div>
     <div class="main-body">
       <textarea placeholder="赶快记录当下的真情感受吧" v-model="pageMsg.content"></textarea>
+      <div class="mood-tab" @click="myMoodNow">
+        <p>心情标签:</p>
+        <div class="mood-list l1" mood="开心">开心</div>
+        <div class="mood-list l2" mood="伤心">伤心</div>
+        <div class="mood-list l3" mood="委屈">委屈</div>
+        <div class="mood-list l4" mood="轻松">轻松</div>
+        <div class="mood-list l5" mood="无奈">无奈</div>
+        <div class="mood-list l6" mood="雀跃">雀跃</div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +42,8 @@ export default {
           day: '',
           hour: ''
         },
-        content: ''
+        content: '',
+        moodNow: ''
       }
     };
   },
@@ -47,11 +57,18 @@ export default {
             content:this.pageMsg.content,
             user_id:this.pageMsg.user_id,
             time:this.pageMsg.time,
-            niname:this.pageMsg.niname
+            niname:this.pageMsg.niname,
+            moodNow:this.pageMsg.moodNow
           }
         }).then((res) =>{
           console.log(res);
         })
+    },
+    myMoodNow (e) {
+      let dom = e.target;
+      let index = dom.getAttribute("mood");
+      // console.log(index);
+      this.pageMsg.moodNow = index;
     }
   },
   mounted () {
@@ -72,7 +89,7 @@ export default {
     .main-body{
       textarea{
         width: 100%;
-        min-height: 600px;
+        min-height: 550px;
         border: none;
         outline: 0;
         color: transparent;
@@ -82,6 +99,57 @@ export default {
         padding: 10px 8px 10px 10px;
         letter-spacing: 1px;
         text-indent: 32px;
+      }
+      .mood-tab{
+        width: 90%;
+        height: 50px;
+        // background: pink;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        .mood-list{
+          // background: blue;
+          width: 40px;
+          height: 25px;
+          text-align: center;
+          line-height: 25px;
+          margin: 10px 0 0 4px;
+          border-radius: 6px;
+          font-size: 12px;
+          color: #ffffff;
+          background: #cccccc;
+          border: 1px solid gray;
+        }
+        .l1:hover{
+          color: #e8f5e9;
+          background: #64dd17;
+          border: 1px solid #00e676;
+        }
+        .l2:hover{
+          color: #0d47a1;
+          background: #42a5f5;
+          border: 1px solid #90caf9;
+        }
+        .l3:hover{
+          color: #f8bbd0;
+          background: #ec407a;
+          border: 1px solid #880e4f;
+        }
+        .l4:hover{
+          color: #ff6f00;
+          background: #ffe082;
+          border: 1px solid #ff6f00;
+        }
+        .l5:hover{
+          color: #37474f;
+          background: #90a4ae;
+          border: 1px solid #37474f;
+        }
+        .l6:hover{
+          color: #ffcdd2;
+          background: #f44336;
+          border: 1px solid #d50000;
+        }
       }
     }
     .finished{

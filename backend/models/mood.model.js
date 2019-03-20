@@ -4,6 +4,7 @@ var  schema = new mongoose.Schema({
   author: String,
   niname: String,
   user_id: String,
+  moodNow: String,
   time:{
     year:String,
     month:String,
