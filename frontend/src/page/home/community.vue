@@ -86,13 +86,13 @@
         <template v-if="focusList.length >= 1">
           <div class="focusList" v-for="(value,index) in focusList" :key="index">
               <mu-list>
-                <mu-list-item button :ripple="false" class="mu-li" @click="focusDetails(value)">
-                  <mu-list-item-action>
+                <mu-list-item button :ripple="false" class="mu-li">
+                  <mu-list-item-action  @click="focusDetails(value)">
                     <mu-avatar>
                       <img src="../../assets/images/avat.jpg">
                     </mu-avatar>
                   </mu-list-item-action>
-                  <mu-list-item-title>{{value.niname}}</mu-list-item-title>
+                  <mu-list-item-title  @click="focusDetails(value)">{{value.niname}}</mu-list-item-title>
                   <mu-list-item-action>
                     <div style="font-size:14px;" @click="focusOff(value)">取消关注</div>
                   </mu-list-item-action>
@@ -112,7 +112,7 @@
                 </mu-avatar>
                 <div class="author">
                   <div class="niname">{{story.niname}}</div>
-                  <div class="email">{{story.author}}</div>
+                  <div class="email">心情:&emsp;<span style="font-size:12px;color:red;">{{story.moodNow}}</span></div>
                 </div>
                 </div>
               </mu-card-header>
@@ -278,7 +278,7 @@ export default {
         method:'delete',
         url:'http://localhost:3000/focus/data/'+value._id,
       }).then( res => {
-        // console.log(res);
+        Message.alert('已经取消关注', '提示');
       });
       this.gainFocus();
     },
