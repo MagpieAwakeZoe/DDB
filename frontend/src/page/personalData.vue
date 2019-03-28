@@ -57,7 +57,9 @@ export default {
           niname: this.form.niname,
       });
       const user_id = this.$store.state.user_id;
+      const niname = this.$store.state.niname;
       // console.log(user_id);
+      // console.log(niname);
       // console.log(this.form);
       this.axios({
         method:'put',

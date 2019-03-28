@@ -43,6 +43,7 @@ export default {
   },
   methods: {
     finished () {
+        // console.log(this.pageMsg.niname);
       this.axios({
           method:'post',
           url:'http://localhost:3000/diary/data',

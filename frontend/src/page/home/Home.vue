@@ -65,10 +65,10 @@ export default {
       this.isSelected4 = !this.isSelected4;
     },
     setTimer () {
-      console.log(this.futureTime);
-      console.log(this.nowAllSecond);
+      // console.log(this.futureTime);
+      // console.log(this.nowAllSecond);
       let timeDiffPlus =  this.futureTime - this.nowAllSecond;
-      console.log(timeDiffPlus);
+      // console.log(timeDiffPlus);
       if (timeDiffPlus > 0) {
         clearTimeout(this.timer);
         this.timer = setTimeout(()=>{

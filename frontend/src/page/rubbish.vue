@@ -20,8 +20,6 @@
             </mu-list-item>
             <mu-divider></mu-divider>
           </div>
-
-
         </mu-list>
       </mu-paper>
       </div>

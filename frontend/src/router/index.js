@@ -1,12 +1,3 @@
-// import Home from '@/page/home/Home'
-// import ERR from '@/page/error'
-// import My from '@/page/home/my'
-// import Community from '@/page/home/community'
-// import Message from '@/page/home/message'
-// import Diary from '@/page/home/diary'
-// import Write from '@/page/write'
-// import Search from '@/page/search'
-// import TextDiary from '@/page/text-diary'
 import { resolve } from 'path';
 export default [
   {
