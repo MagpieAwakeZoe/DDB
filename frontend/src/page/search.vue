@@ -28,21 +28,41 @@
       <div class="describe">
         <p>"<span style="color:#00b8d4">{{keyword}}</span>"&emsp;相关</p>
       </div>
-      <div class="demo-text" v-if="active1 === 0">
+      <div class="demo-text" v-if="active1 === 0" @click="toStoryDetails">
         <div class="storyRes">
-          <div class="story-reslist" v-for="(value,index) in storyRes" :key="index">
-            <div class="story-title">{{value.title}}</div>
-            <div class="story-content">{{value.content}}</div>
-          </div>
+          <template v-if="storyRes.length > 0">
+            <div class="story-reslist" v-for="(value,index) in storyRes" :key="index">
+              <div class="story-title">{{value.title}}</div>
+              <div class="story-content">{{value.content}}</div>
+            </div>
+          </template>
+          <template v-if="storyRes.length == 0">
+            <div class="noRes">
+              <div class="noPic">
+                <img src="../assets/images/62779058_p0.png" alt="">
+                <div style="text-align:center;font-size:16px;">暂无结果</div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
-      <div class="demo-text" v-if="active1 === 1">
+      <div class="demo-text" v-if="active1 === 1" @click="toMoodDetails">
         <div class="moodRes">
-          <div class="mood-reslist" v-for="(item,index) in moodRes" :key="index">
-            <br>
-            <div class="mood-content">{{item.content}}</div>
-            <div class="mood-tab"><span style="color:red">心情标签:&emsp;{{item.moodNow}}</span></div>
-          </div>
+          <template v-if="moodRes.length > 0">
+            <div class="mood-reslist" v-for="(item,index) in moodRes" :key="index">
+              <br>
+              <div class="mood-content">{{item.content}}</div>
+              <div class="mood-tab"><span style="color:red">心情标签:&emsp;{{item.moodNow}}</span></div>
+            </div>
+          </template>
+          <template v-if="moodRes.length == 0">
+            <div class="noRes">
+              <div class="noPic">
+                <img src="../assets/images/62779058_p0.png" alt="">
+                <div style="text-align:center;font-size:16px;">暂无结果</div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -84,7 +104,12 @@ export default {
         }).then( res =>{
           this.storyRes = res.data;
         })
-
+    },
+    toStoryDetails () {
+      this.$router.push('/storyDetails');
+    },
+    toMoodDetails () {
+      this.$router.push('/storyDetails');
     }
   }
 }
@@ -159,6 +184,18 @@ export default {
     }
     .storyRes{
       width: 100%;
+      .noRes{
+        width: 100%;
+        min-height: 400px;
+        // background: red;
+        .noPic{
+          position: absolute;
+          display: block;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
       .story-reslist{
         width: 90%;
         background: #eceff1;
@@ -176,6 +213,18 @@ export default {
     }
     .moodRes{
       width: 100%;
+        .noRes{
+        width: 100%;
+        min-height: 400px;
+        // background: red;
+        .noPic{
+          position: absolute;
+          display: block;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
       .mood-reslist{
         width: 90%;
         background: #eceff1;
