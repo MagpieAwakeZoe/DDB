@@ -13,5 +13,6 @@ router.put('/data/:id', dataCtrl.update);
 router.post('/list', dataCtrl.list);     //分页
 router.delete('/removes', dataCtrl.removes);
 router.get('/gainpage', dataCtrl.gainPage);
+router.get('/searchMood',dataCtrl.keywordFind); //查找心情
 module.exports = router;
 

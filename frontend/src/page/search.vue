@@ -8,11 +8,11 @@
               <mu-icon value="search"></mu-icon>
             </div>
             <div class="text-box">
-              <input type="text" placeholder="请输入搜索内容">
+              <input type="text" placeholder="请输入搜索内容" v-model="keyword">
             </div>
           </div>
           <div class="btn-group">
-            <span>确定</span>
+            <span @click="search">确定</span>
             <span>&emsp;</span>
             <span @click="goBack">取消</span>
           </div>
@@ -26,22 +26,22 @@
       </mu-tabs>
       <mu-divider></mu-divider>
       <div class="describe">
-        <p>"<span style="color:#00b8d4">天蝎座</span>"&emsp;相关</p>
+        <p>"<span style="color:#00b8d4">{{keyword}}</span>"&emsp;相关</p>
       </div>
       <div class="demo-text" v-if="active1 === 0">
         <div class="storyRes">
-          <div class="story-reslist">
-            <div class="story-title">css如何设置div固定</div>
-            <div class="story-content">本篇文章就给大家详细介绍如何用css样式让div固定在最上面,或者设置div在底部固定。... 本篇文章就给大家详细介绍如何用css样式让div固定在最上面,</div>
+          <div class="story-reslist" v-for="(value,index) in storyRes" :key="index">
+            <div class="story-title">{{value.title}}</div>
+            <div class="story-content">{{value.content}}</div>
           </div>
         </div>
       </div>
       <div class="demo-text" v-if="active1 === 1">
         <div class="moodRes">
-          <div class="mood-reslist">
-            <div class="mood-title">css如何设置div固定</div>
-            <div class="mood-content">本篇文章就给大家详细介绍如何用css样式让div固定在最上面,或者设置div在底部固定。... 本篇文章就给大家详细介绍如何用css样式让div固定在最上面,</div>
-            <div class="mood-tab"><span style="color:red">心情标签:&emsp;轻松</span></div>
+          <div class="mood-reslist" v-for="(item,index) in moodRes" :key="index">
+            <br>
+            <div class="mood-content">{{item.content}}</div>
+            <div class="mood-tab"><span style="color:red">心情标签:&emsp;{{item.moodNow}}</span></div>
           </div>
         </div>
       </div>
@@ -59,12 +59,32 @@ export default {
   },
   data () {
     return {
-      active1: 0
+      active1: 0,
+      keyword: '',
+      storyRes: [],
+      moodRes: []
     }
   },
   methods: {
     goBack () {
       this.$router.go(-1);
+    },
+    search () {
+      //搜索符合条件的故事
+      this.axios({
+          method:'get',
+          url:'http://localhost:3000/mood/searchMood?keyword=' + this.keyword
+        }).then( res =>{
+          this.moodRes = res.data;
+        })
+      //搜索符和条件的心情
+     this.axios({
+          method:'get',
+          url:'http://localhost:3000/story/searchStory?keyword=' + this.keyword
+        }).then( res =>{
+          this.storyRes = res.data;
+        })
+
     }
   }
 }

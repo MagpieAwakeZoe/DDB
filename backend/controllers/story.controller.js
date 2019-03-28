@@ -87,3 +87,19 @@ exports.gainPage = function(req, res, next) {
 //         res.json(data);
 //     })
 // };
+
+
+exports.keywordFind = function(req, res, next) {
+    const {keyword} = req.query;
+    const reg = new RegExp(keyword, 'i');
+    Story.find(
+        {
+            $or : [
+                {content : {$regex :reg}},
+                {title : {$regex :reg}}
+            ]
+        }
+    ).then(data => {
+        res.json(data);
+    })
+}

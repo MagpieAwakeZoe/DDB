@@ -87,3 +87,20 @@ exports.gainPage = function(req, res, next) {
 //         res.json(data);
 //     })
 // };
+
+
+//查到keyword符合的心情
+exports.keywordFind = function(req, res, next) {
+    const {keyword} = req.query;
+    const reg = new RegExp(keyword, 'i');
+    Mood.find(
+        {
+            $or : [
+                {content : {$regex :reg}},
+                {moodNow : {$regex :reg}}
+            ]
+        }
+    ).then(data => {
+        res.json(data);
+    })
+}
