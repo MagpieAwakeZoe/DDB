@@ -50,10 +50,9 @@ export default {
         url:'http://localhost:3000/diary/data/' + item._id,
       }).then( res => {
         console.log(res);
+        //重新渲染
+        this.gainMyDiary();
       });
-      //重新渲染
-      this.gainMyDiary();
-
       //将删除的数据添加到回收站数据库
       this.axios({
       method:'post',

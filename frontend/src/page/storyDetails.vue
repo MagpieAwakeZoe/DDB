@@ -101,8 +101,9 @@ export default {
           }
         }).then( res =>{
           console.log(res);
+          this.renderComment();
         })
-        this.renderComment();
+
         this.renderCommentNum();
         this.open = false;
     },

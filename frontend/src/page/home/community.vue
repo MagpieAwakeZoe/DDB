@@ -279,8 +279,8 @@ export default {
         url:'http://localhost:3000/focus/data/'+value._id,
       }).then( res => {
         Message.alert('已经取消关注', '提示');
+        this.gainFocus();
       });
-      this.gainFocus();
     },
     focusDetails (value) {
       // console.log(value);

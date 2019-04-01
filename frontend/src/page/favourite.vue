@@ -47,8 +47,9 @@ export default {
         url:'http://localhost:3000/collection/data/'+item._id,
       }).then( res => {
         console.log(res);
+        this.getCollection();
       });
-      this.getCollection();
+
     },
     getCollection () {
       const user_id = this.$store.state.user_id;

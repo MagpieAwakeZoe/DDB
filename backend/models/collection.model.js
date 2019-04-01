@@ -30,5 +30,5 @@ var  schema = new mongoose.Schema({
 
 
 schema.plugin(materializedPlugin);
-
+  
 module.exports=mongoose.model('Collection',  schema);

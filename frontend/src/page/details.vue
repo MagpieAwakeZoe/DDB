@@ -98,10 +98,11 @@ export default {
             page_id: this.page_id,
             content: this.textarea
           }
-        }).then( res =>{
+        }).then(res =>{
           // console.log(res);
+          this.renderComment();
         })
-        this.renderComment();
+
         this.renderCommentNum();
         this.open = false;
     },
