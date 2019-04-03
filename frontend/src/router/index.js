@@ -101,5 +101,10 @@ export default [
     path:'/future-letter',
     name:'未来的信',
     component:resolve => require(['@/page/future-letter'], resolve)
+  },
+  {
+    path:'/uploader',
+    name:'上传',
+    component:resolve => require(['@/page/uploader'], resolve)
   }
 ]

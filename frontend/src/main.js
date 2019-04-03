@@ -10,6 +10,10 @@ import axios from 'axios'
 import ImgLazyLoad from 'vue-lazyload'
 import MuseUi from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css';
+// import uploader from 'vue-easy-uploader'
+
+// let uploaderstore = new Vuex.Store({})
+// Vue.use(uploader, uploaderstore)
 
 Vue.use(Router);
 Vue.use(MuseUi);

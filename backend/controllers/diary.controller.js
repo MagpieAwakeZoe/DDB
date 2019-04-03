@@ -5,8 +5,7 @@ exports.create=function(req,res,next){
     diary.save().then(data=>{
         res.json(data);
     })
-};
-
+};   
 //删
 exports.remove=function(req,res,next){
     var id=req.params.id;

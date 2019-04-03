@@ -108,7 +108,7 @@
               <mu-card-header class="header">
                 <div style="display:flex">
                 <mu-avatar slot="avatar">
-                  <img src="../../assets/images/avat.jpg">
+                  <img src="../../../../backend/public/image/avatar1.jpg">
                 </mu-avatar>
                 <div class="author">
                   <div class="niname">{{story.niname}}</div>

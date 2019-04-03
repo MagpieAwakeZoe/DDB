@@ -4,7 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/vue');
 
@@ -18,6 +17,7 @@ var collectionRouter = require('./routes/collection');
 var focusRouter = require('./routes/focus');
 var rubbishRouter = require('./routes/rubbish');
 var moodRouter = require('./routes/mood');
+let uploadRouter = require('./routes/upload');
 
 var app = express();
 
@@ -29,9 +29,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static',express.static(path.join(__dirname, 'public')));
+// app.use('/page',express.static(path.join(__dirname, 'page')));
 app.use(cors()); 
 
+// app.use(express.static('public'));
 app.use('/regist', registRouter);
 app.use('/diary', diaryRouter);
 app.use('/comment', commentRouter);
@@ -41,12 +43,12 @@ app.use('/collection', collectionRouter);
 app.use('/focus', focusRouter);
 app.use('/rubbish', rubbishRouter);
 app.use('/mood', moodRouter);
-
+app.use('/upload', uploadRouter );
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function(err, req, res, next) {

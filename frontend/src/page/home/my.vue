@@ -10,7 +10,9 @@
         <div class="message-container">
            <div class="head-tab">
              <div class="head-container">
-             <div class="avantar"></div>
+             <div class="avantar" @click="toUpload">
+               <img :src="imgURL" alt="">
+             </div>
              <div class="account">
                <div class="email">
                  <p>18395988463</p>
@@ -105,7 +107,9 @@ export default {
   },
   data(){
     return{
-      active1: 0
+      active1: 0,
+      user_id: null,
+      imgURL: ''
     };
   },
   methods: {
@@ -123,14 +127,28 @@ export default {
       this.$router.push('/rubbish');
     },
     goFavourite () {
-      this.$router.push('/favourite')
+      this.$router.push('/favourite');
     },
     goImpression () {
-      this.$router.push('/impression')
+      this.$router.push('/impression');
     },
     writeDiary () {
-      this.$router.push('/setTime')
+      this.$router.push('/setTime');
+    },
+    toUpload () {
+      this.$router.push('/uploader');
     }
+  },
+  mounted () {
+    this.user_id = this.$store.state.user_id;
+    this.axios({
+      method:'get',
+      url:'http://localhost:3000/regist/gainPage?user_id=' + this.user_id
+    }).then(res=>{
+      let URL = res.data.avatar;
+      this.imgURL = 'http://localhost:3000' + URL;
+      console.log(this.imgURL);
+    })
   }
 }
 </script>
@@ -164,10 +182,14 @@ export default {
           .avantar{
             width: 60px;
             height: 60px;
-            background: aqua;
             border-radius:8px;
             float: left;
             margin: 0 0 0 20px;
+            img{
+              width: 60px;
+              height: 60px;
+              border-radius:8px;
+            }
           }
           .account{
             width: 200px;
