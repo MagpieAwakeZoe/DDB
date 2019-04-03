@@ -34,7 +34,7 @@ export default {
   },
   mounted () {
     this.futureLetter = JSON.parse(localStorage.getItem('futureLetter'));
-    console.log(this.futureLetter);
+    // console.log(this.futureLetter);
   }
 }
 </script>

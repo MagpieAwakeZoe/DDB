@@ -63,7 +63,7 @@ export default {
             avatar:this.pageMsg.avatar
           }
         }).then((res) =>{
-          console.log(res);
+          // console.log(res);
         })
     },
     myMoodNow (e) {

@@ -253,6 +253,7 @@ export default {
         method:'get',
         url:'http://localhost:3000/focus/gainPage?user_id='+user_id,
       }).then( res => {
+        // console.log(res.data);
         this.focusList = res.data;
       })
     },
@@ -296,7 +297,7 @@ export default {
       url:'http://localhost:3000/diary/gainData'
     }).then( res => {
       this.newPage = res.data;
-      console.log(this.newPage);
+      // console.log(this.newPage);
     })
 
 

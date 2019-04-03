@@ -9,7 +9,7 @@
       <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
-              <img src="../assets/images/avat.jpg">
+              <img :src="page_detail.avatar">
             </mu-avatar>
           </mu-card-header>
           <!-- TODO:timeago控件 -->
@@ -30,7 +30,7 @@
           <div class="per-comment" v-for="(value,index) in comments" :key="index">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
-              <img src="../assets/images/avat.jpg">
+              <img :src="avatar">
             </mu-avatar>
           </mu-card-header>
           <mu-card-text class="text-com">
@@ -76,8 +76,8 @@ export default {
       comments: [],
       collectionNum: '',    //收藏数
       // commentsNum: '',      //评论数
-      thumbsNum: ''         //点赞数
-
+      thumbsNum: '',         //点赞数
+      avatar: ''
     };
   },
   methods: {
@@ -96,7 +96,8 @@ export default {
           url:'http://localhost:3000/comment/data',
           data:{
             page_id: this.page_id,
-            content: this.textarea
+            content: this.textarea,
+            avatar: this.avatar
           }
         }).then(res =>{
           // console.log(res);
@@ -176,6 +177,7 @@ export default {
     this.collectionNum = this.page_detail.collectionNum;
     this.commentsNum = this.page_detail.commentsNum;
     this.thumbsNum = this.page_detail.thumbsNum;
+    this.avatar = this.$store.state.avatar;
   }
 };
 </script>

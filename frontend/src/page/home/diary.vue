@@ -49,7 +49,7 @@ export default {
         method:'delete',
         url:'http://localhost:3000/diary/data/' + item._id,
       }).then( res => {
-        console.log(res);
+        // console.log(res);
         //重新渲染
         this.gainMyDiary();
       });
@@ -63,7 +63,7 @@ export default {
         user_id: item.user_id
       }
     }).then( res => {
-      console.log(res);
+      // console.log(res);
     })
 
 

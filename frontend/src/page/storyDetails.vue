@@ -10,7 +10,7 @@
       <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
-              <img src="../assets/images/avat.jpg">
+              <img :src="story_detail.avatar">
             </mu-avatar>
           </mu-card-header>
           <!-- TODO:timeago控件 -->
@@ -31,7 +31,7 @@
           <div class="per-comment" v-for="(value,index) in comments" :key="index">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
-              <img src="../assets/images/avat.jpg">
+              <img :src="avatar">
             </mu-avatar>
           </mu-card-header>
           <mu-card-text class="text-com">
@@ -78,7 +78,7 @@ export default {
       // collectionNum: '',    //收藏数
       // commentsNum: '',      //评论数
       // thumbsNum: ''         //点赞数
-
+      avatar: ''
     };
   },
   methods: {
@@ -97,10 +97,11 @@ export default {
           url:'http://localhost:3000/scomment/data',
           data:{
             page_id: this.page_id,
-            content: this.textarea
+            content: this.textarea,
+            avatar: this.avatar
           }
         }).then( res =>{
-          console.log(res);
+          // console.log(res);
           this.renderComment();
         })
 
@@ -124,7 +125,7 @@ export default {
           commentsNum: this.comments.length + 1
         }
       }).then( res => {
-        console.log(res);
+        // console.log(res);
       })
     },
     // collect (e) {
@@ -162,6 +163,7 @@ export default {
     // }
   },
   mounted () {
+    this.avatar = this.$store.state.avatar;
     // console.log(JSON.parse(localStorage.getItem('story_detail')));
     this.story_detail = JSON.parse(localStorage.getItem('story_detail'));
     this.page_id = JSON.parse(localStorage.getItem('story_detail'))._id;

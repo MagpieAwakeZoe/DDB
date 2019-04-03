@@ -11,7 +11,7 @@
            <div class="head-tab">
              <div class="head-container">
              <div class="avantar" @click="toUpload">
-               <img :src="imgURL" alt="">
+               <img :src="avatar" alt="">
              </div>
              <div class="account">
                <div class="email">
@@ -109,7 +109,8 @@ export default {
     return{
       active1: 0,
       user_id: null,
-      imgURL: ''
+      imgURL: '',
+      avatar: ''
     };
   },
   methods: {
@@ -140,14 +141,17 @@ export default {
     }
   },
   mounted () {
+    this.avatar = this.$store.state.avatar;
+    // console.log(this.avatar)
     this.user_id = this.$store.state.user_id;
+    // console.log(this.user_id)
     this.axios({
       method:'get',
       url:'http://localhost:3000/regist/gainPage?user_id=' + this.user_id
     }).then(res=>{
       let URL = res.data.avatar;
       this.imgURL = 'http://localhost:3000' + URL;
-      console.log(this.imgURL);
+      // console.log(this.imgURL);
       //将头像存储在vuex中
       this.$store.commit({
           type: "saveAvatar",

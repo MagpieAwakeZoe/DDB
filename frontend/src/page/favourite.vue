@@ -46,7 +46,7 @@ export default {
         method:'delete',
         url:'http://localhost:3000/collection/data/'+item._id,
       }).then( res => {
-        console.log(res);
+        // console.log(res);
         this.getCollection();
       });
 

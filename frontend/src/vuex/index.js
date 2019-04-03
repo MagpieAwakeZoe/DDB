@@ -17,7 +17,7 @@ export default new Vuex.Store({
           day: '',
           hour: ''
         },
-        avatar: ''
+        avatar: 'http://localhost:3000/static/image/noAvatar.jpg'
     },
     mutations: {
 
