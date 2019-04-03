@@ -5,6 +5,7 @@ var  schema = new mongoose.Schema({
   author: String,
   niname: String,
   user_id: String,
+  avatar: String,
   // user_id: {type: Schema.Types.ObjectId },
   time:{
     year:String,

@@ -16,7 +16,8 @@ export default new Vuex.Store({
           month: '',
           day: '',
           hour: ''
-        }
+        },
+        avatar: ''
     },
     mutations: {
 
@@ -55,6 +56,11 @@ export default new Vuex.Store({
       },
       saveHour (state, payload) {
         state.time.hour = payload.hour;
+      },
+
+      //用户的头像
+      saveAvatar (state, payload) {
+        state.avatar = payload.avatar;
       }
 
     }

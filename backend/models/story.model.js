@@ -4,6 +4,7 @@ var  schema = new mongoose.Schema({
   title: String,     //文章标题
   author: String,
   user_id: String,
+  avatar: String,
   niname: {
     type:String,
     default:'一位不知情的路人'       

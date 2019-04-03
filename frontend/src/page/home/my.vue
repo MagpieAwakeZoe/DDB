@@ -148,6 +148,11 @@ export default {
       let URL = res.data.avatar;
       this.imgURL = 'http://localhost:3000' + URL;
       console.log(this.imgURL);
+      //将头像存储在vuex中
+      this.$store.commit({
+          type: "saveAvatar",
+          avatar: this.imgURL
+      });
     })
   }
 }

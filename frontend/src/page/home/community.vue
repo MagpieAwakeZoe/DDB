@@ -51,7 +51,7 @@
           <mu-card-header class="header">
             <div style="display:flex">
             <mu-avatar slot="avatar">
-              <img src="../../assets/images/avat.jpg">
+              <img :src="value.avatar">
             </mu-avatar>
             <div class="author">
               <div class="niname">{{value.niname}}</div>
@@ -89,7 +89,7 @@
                 <mu-list-item button :ripple="false" class="mu-li">
                   <mu-list-item-action  @click="focusDetails(value)">
                     <mu-avatar>
-                      <img src="../../assets/images/avat.jpg">
+                      <img :src="value.avatar">
                     </mu-avatar>
                   </mu-list-item-action>
                   <mu-list-item-title  @click="focusDetails(value)">{{value.niname}}</mu-list-item-title>
@@ -108,7 +108,7 @@
               <mu-card-header class="header">
                 <div style="display:flex">
                 <mu-avatar slot="avatar">
-                  <img src="../../../../backend/public/image/avatar1.jpg">
+                  <img :src="story.avatar">
                 </mu-avatar>
                 <div class="author">
                   <div class="niname">{{story.niname}}</div>
@@ -135,7 +135,7 @@
               <mu-card-header class="header">
                 <div style="display:flex">
                 <mu-avatar slot="avatar">
-                  <img src="../../assets/images/avat.jpg">
+                  <img :src="story.avatar">
                 </mu-avatar>
                 <div class="author">
                   <div class="niname">{{story.niname}}</div>
@@ -267,7 +267,8 @@ export default {
       url:'http://localhost:3000/focus/data',
       data: {
         niname: value.niname,
-        user_id: value.user_id
+        user_id: value.user_id,
+        avatar: value.avatar
       }
     }).then( res => {
       // console.log(res);
@@ -295,7 +296,7 @@ export default {
       url:'http://localhost:3000/diary/gainData'
     }).then( res => {
       this.newPage = res.data;
-      // console.log(this.newPage);
+      console.log(this.newPage);
     })
 
 

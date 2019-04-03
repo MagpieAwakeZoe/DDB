@@ -43,7 +43,8 @@ export default {
           hour: ''
         },
         content: '',
-        moodNow: ''
+        moodNow: '',
+        avatar: ''
       }
     };
   },
@@ -58,7 +59,8 @@ export default {
             user_id:this.pageMsg.user_id,
             time:this.pageMsg.time,
             niname:this.pageMsg.niname,
-            moodNow:this.pageMsg.moodNow
+            moodNow:this.pageMsg.moodNow,
+            avatar:this.pageMsg.avatar
           }
         }).then((res) =>{
           console.log(res);
@@ -81,6 +83,7 @@ export default {
     this.pageMsg.time.month = this.$store.state.time.month;
     this.pageMsg.time.day = this.$store.state.time.day;
     this.pageMsg.time.hour = this.$store.state.time.hour;
+    this.pageMsg.avatar = this.$store.state.avatar;
   }
 }
 </script>

@@ -37,7 +37,8 @@ export default {
         },
         title: '',
         content: '',
-        niname: ''
+        niname: '',
+        avatar: ''
       }
     };
   },
@@ -52,7 +53,8 @@ export default {
             content:this.pageMsg.content,
             user_id:this.pageMsg.user_id,
             time:this.pageMsg.time,
-            niname:this.pageMsg.niname
+            niname:this.pageMsg.niname,
+            avatar:this.pageMsg.avatar
           }
         })
     }
@@ -66,6 +68,7 @@ export default {
     this.pageMsg.time.day = this.$store.state.time.day;
     this.pageMsg.time.hour = this.$store.state.time.hour;
     this.pageMsg.niname = this.$store.state.niname;
+    this.pageMsg.avatar = this.$store.state.avatar;
   }
 }
 </script>

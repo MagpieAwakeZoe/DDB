@@ -5,7 +5,8 @@ var  schema = new mongoose.Schema({
     type:String,
     default:0       
   }, 
-  user_id: String
+  user_id: String,
+  avatar:String
 });
 
 

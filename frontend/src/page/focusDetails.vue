@@ -7,7 +7,9 @@
         <img src="../assets/images/cat_girl.jpg" alt="">
       </div>
       <div class="container">
-      <div class="avatar"></div>
+      <div class="avatar">
+        <img :src="avatar" alt="">
+      </div>
       <div class="exponent"><span style="color:blue;">♂</span>&emsp;{{personData.niname}}</div>
       <br>
       <mu-tabs :value.sync="active1" inverse color="#42a5f5" text-color="rgba(0, 0, 0, .54)"  center indicator-color="transparent">
@@ -79,7 +81,8 @@ export default {
       personData: [],
       focusDiary: [],
       focusStory: [],
-      impression: ''
+      impression: '',
+      avatar: ''
     }
   },
   methods:{
@@ -98,6 +101,7 @@ export default {
           url:'http://localhost:3000/regist/gainPage?user_id=' + user_id,
         }).then( res => {
           this.personData = res.data;
+          this.avatar = 'http://localhost:3000' + this.personData.avatar;
         })
 
     //发布日记获取
@@ -201,6 +205,11 @@ export default {
       margin: -50px 0 0 20px;
       z-index: 10;
       position: relative;
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+      }
     }
     .exponent{
       position: absolute;
