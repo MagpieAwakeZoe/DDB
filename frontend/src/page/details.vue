@@ -161,7 +161,8 @@ export default {
           title: this.page_detail.title,
           user_id: this.page_detail.user_id,
           _id: this.page_detail._id,
-          my_id: this.$store.state.user_id
+          my_id: this.$store.state.user_id,
+          avatar: this.page_detail.avatar
         }
       }).then( res => {
         // console.log(res);

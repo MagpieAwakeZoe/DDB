@@ -4,6 +4,7 @@ var  schema = new mongoose.Schema({
   title: String,     //文章标题
   author: String,
   user_id: String,
+  avatar: String,
   // user_id: {type: Schema.Types.ObjectId },
   my_id: String,
   time:{
