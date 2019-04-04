@@ -149,7 +149,15 @@ export default {
       this.axios({
         method:'post',
         url:'http://localhost:3000/collection/data',
-        data: this.page_detail
+        data: {
+          author: this.page_detail.author,
+          content: this.page_detail.content,
+          niname: this.page_detail.niname,
+          title: this.page_detail.title,
+          user_id: this.page_detail.user_id,
+          _id: this.page_detail._id,
+          my_id: this.$store.state.user_id
+        }
       }).then( res => {
         // console.log(res);
       })

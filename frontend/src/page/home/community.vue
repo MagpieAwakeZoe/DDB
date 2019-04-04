@@ -248,10 +248,11 @@ export default {
     },
     gainFocus () {
       //获取关注
-      const user_id = this.$store.state.user_id;
+      const my_id = this.$store.state.user_id;
+      // console.log(my_id);
       this.axios({
         method:'get',
-        url:'http://localhost:3000/focus/gainPage?user_id='+user_id,
+        url:'http://localhost:3000/focus/gainPage?my_id='+my_id,
       }).then( res => {
         // console.log(res.data);
         this.focusList = res.data;
@@ -269,10 +270,11 @@ export default {
       data: {
         niname: value.niname,
         user_id: value.user_id,
-        avatar: value.avatar
+        avatar: value.avatar,
+        my_id: this.$store.state.user_id
       }
     }).then( res => {
-      // console.log(res);
+      this.gainFocus();
     })
     },
     focusOff (value) {

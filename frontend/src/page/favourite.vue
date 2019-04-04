@@ -53,11 +53,13 @@ export default {
     },
     getCollection () {
       const user_id = this.$store.state.user_id;
+      console.log(user_id);
       this.axios({
         method:'get',
-        url:'http://localhost:3000/collection/gainpage?user_id='+user_id,
+        url:'http://localhost:3000/collection/gainpage?my_id=' + user_id,
       }).then( res => {
         this.collection = res.data;
+        // console.log(this.collection);
       })
     },
     toDetails (item) {

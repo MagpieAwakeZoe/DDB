@@ -77,8 +77,8 @@ exports.gainData = function(req, res, next){
 
 //查询到用户信息
 exports.gainPage = function(req, res, next) {
-    const {user_id} = req.query
-    Focus.find({user_id:user_id}).then(data => {
+    const {my_id} = req.query
+    Focus.find({my_id:my_id}).then(data => {
         res.json(data);
     })
 };

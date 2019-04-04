@@ -74,8 +74,8 @@ exports.gainData = function(req, res, next) {
 
 //查到指定用户下的文章
 exports.gainPage = function(req, res, next) {
-    const {user_id} = req.query
-    Collection.find({user_id:user_id}).then(data => {
+    const {my_id} = req.query
+    Collection.find({my_id:my_id}).then(data => {
         res.json(data);
     })
 };
