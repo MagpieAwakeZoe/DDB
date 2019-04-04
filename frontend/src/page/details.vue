@@ -77,7 +77,9 @@ export default {
       collectionNum: '',    //收藏数
       // commentsNum: '',      //评论数
       thumbsNum: '',         //点赞数
-      avatar: ''
+      avatar: '',
+      niname: '',
+      author: ''
     };
   },
   methods: {
@@ -97,7 +99,9 @@ export default {
           data:{
             page_id: this.page_id,
             content: this.textarea,
-            avatar: this.avatar
+            avatar: this.avatar,
+            niname: this.niname,
+            author: this.author
           }
         }).then(res =>{
           // console.log(res);
@@ -186,6 +190,8 @@ export default {
     this.commentsNum = this.page_detail.commentsNum;
     this.thumbsNum = this.page_detail.thumbsNum;
     this.avatar = this.$store.state.avatar;
+    this.niname = this.$store.state.niname;
+    this.author = this.$store.state.author;
   }
 };
 </script>

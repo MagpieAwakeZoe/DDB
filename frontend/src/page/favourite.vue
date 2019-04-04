@@ -53,7 +53,7 @@ export default {
     },
     getCollection () {
       const user_id = this.$store.state.user_id;
-      console.log(user_id);
+      // console.log(user_id);
       this.axios({
         method:'get',
         url:'http://localhost:3000/collection/gainpage?my_id=' + user_id,
