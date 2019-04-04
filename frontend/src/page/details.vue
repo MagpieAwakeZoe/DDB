@@ -30,7 +30,7 @@
           <div class="per-comment" v-for="(value,index) in comments" :key="index">
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
-              <img :src="avatar">
+              <img :src="value.avatar">
             </mu-avatar>
           </mu-card-header>
           <mu-card-text class="text-com">
@@ -99,7 +99,7 @@ export default {
           data:{
             page_id: this.page_id,
             content: this.textarea,
-            avatar: this.avatar,
+            avatar: 'http://localhost:3000' + this.avatar,
             niname: this.niname,
             author: this.author
           }
@@ -118,6 +118,7 @@ export default {
         url:'http://localhost:3000/comment/gainComment?page_id='+this.page_id,
      }).then( res => {
        this.comments = res.data;
+      //  console.log(this.comments);
      })
     },
     renderCommentNum () {
@@ -189,11 +190,25 @@ export default {
     this.collectionNum = this.page_detail.collectionNum;
     this.commentsNum = this.page_detail.commentsNum;
     this.thumbsNum = this.page_detail.thumbsNum;
-    this.avatar = this.$store.state.avatar;
-    this.niname = this.$store.state.niname;
-    this.author = this.$store.state.author;
-  }
-};
+
+    // this.avatar = this.$store.state.avatar;
+    // this.niname = this.$store.state.niname;
+    // this.author = this.$store.state.author;
+
+    //从数据库中获取评论人的信息
+    let user_id = this.$store.state.user_id;
+    // alert(user_id);
+     this.axios({
+          method:'get',
+          url:'http://localhost:3000/regist/gainPage?user_id=' + user_id,
+      }).then((res)=>{
+        // console.log(res.data);
+        this.avatar = res.data.avatar;
+        this.author = res.data.email;
+        this.niname = res.data.niname;
+      })
+    }
+  };
 </script>
 <style lang="less">
 html,
