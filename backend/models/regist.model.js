@@ -25,7 +25,7 @@ var  schema = new mongoose.Schema({
   },
   avatar: {
     type:String,
-    default:null
+    default:'/static/image/noAvatar.jpg'
   }
 });
 

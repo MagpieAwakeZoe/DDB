@@ -116,6 +116,7 @@ export default {
   methods: {
     quitAccount () {
       //进行一些操作和处理
+      localStorage.clear();
       this.$router.push('/login');
     },
     goPersonalData () {

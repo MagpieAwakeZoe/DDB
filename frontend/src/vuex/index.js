@@ -60,7 +60,9 @@ export default new Vuex.Store({
 
       //用户的头像
       saveAvatar (state, payload) {
-        state.avatar = payload.avatar;
+        // if (payload.avatar !== 'http://localhost:3000null') {
+          state.avatar = payload.avatar;
+        // }
       }
 
     }
