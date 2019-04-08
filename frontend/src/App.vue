@@ -26,7 +26,7 @@ export default {
     setTimer () {
       let timeDiffPlus = Math.abs(this.alarmTime - this.nowAllSecond);
       let timeDiffMinus = 86400 - timeDiffPlus;
-      // console.log(timeDiffPlus);
+      console.log(timeDiffPlus);
       // console.log(timeDiffMinus);
       // console.log(this.alarmTime >= this.nowAllSecond);
       if (this.alarmTime >= this.nowAllSecond) {

@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
-materializedPlugin = require('mongoose-materialized');
-var  schema = new mongoose.Schema({
-  email:String,
+const mongoose = require('mongoose');//引入mongoose使用mongoose
+var  schema = new mongoose.Schema({ //实例化mongoose的结构Schema
+  email:String,   //各个字段设置
   password:String,
   niname: { 
     type:String,
@@ -28,8 +27,4 @@ var  schema = new mongoose.Schema({
     default:'/static/image/noAvatar.jpg'
   }
 });
-
-
-schema.plugin(materializedPlugin);
-
-module.exports=mongoose.model('Regist',  schema);
+module.exports=mongoose.model('Regist',  schema);//导出这个modal暴露给外界

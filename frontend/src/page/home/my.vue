@@ -15,10 +15,10 @@
              </div>
              <div class="account">
                <div class="email">
-                 <p>18395988463</p>
+                 <p>{{userData.email}}</p>
                </div>
                <div class="niname">
-                 <p>昵称    未设置</p>
+                 <p>昵称:    {{userData.niname}}</p>
                </div>
              </div>
              </div>
@@ -110,7 +110,8 @@ export default {
       active1: 0,
       user_id: null,
       imgURL: '',
-      avatar: ''
+      avatar: '',
+      userData: []
     };
   },
   methods: {
@@ -150,6 +151,7 @@ export default {
       method:'get',
       url:'http://localhost:3000/regist/gainPage?user_id=' + this.user_id
     }).then(res=>{
+      this.userData = res.data;
       let URL = res.data.avatar;
       this.imgURL = 'http://localhost:3000' + URL;
       // console.log(this.imgURL);

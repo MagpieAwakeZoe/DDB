@@ -1,4 +1,4 @@
-const Regist = require('../models/regist.model.js');
+const Regist = require('../models/regist.model.js');    //导入model
 //增
 exports.create=function(req,res,next){
     const regist=new Regist(req.body);
@@ -93,8 +93,8 @@ exports.userLogin = function (req, res, next) {
 
 //查询到用户信息
 exports.gainPage = function(req, res, next) {
-    const {user_id} = req.query
-    Regist.findOne({_id:user_id}).then(data => {
-        res.json(data);
+    const {user_id} = req.query     //获取查询字符串
+    Regist.findOne({_id:user_id}).then(data => {    //找到符合条件user_id的记录
+        res.json(data);     //返回找到的结果
     })
 };
