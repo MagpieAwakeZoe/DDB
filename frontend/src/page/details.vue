@@ -7,10 +7,16 @@
     </header>
     <div id="main">
       <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;box-shadow:none;background:rgb(250,250,250);">
-          <mu-card-header title="Myron Avatar" sub-title="sub title">
-            <mu-avatar slot="avatar">
-              <img :src="page_detail.avatar">
-            </mu-avatar>
+          <mu-card-header class="header">
+            <div style="display:flex">
+              <mu-avatar slot="avatar">
+                <img :src="page_detail.avatar">
+              </mu-avatar>
+            <div class="author">
+              <div class="niname">{{page_detail.niname}}</div>
+              <div class="email">{{page_detail.author}}</div>
+            </div>
+            </div>
           </mu-card-header>
           <!-- TODO:timeago控件 -->
           <div class="title">
@@ -28,10 +34,16 @@
         </div>
         <div class="com-content">
           <div class="per-comment" v-for="(value,index) in comments" :key="index">
-          <mu-card-header title="Myron Avatar" sub-title="sub title">
-            <mu-avatar slot="avatar">
-              <img :src="value.avatar">
-            </mu-avatar>
+          <mu-card-header class="header">
+            <div style="display:flex">
+              <mu-avatar slot="avatar">
+                <img :src="value.avatar">
+              </mu-avatar>
+            <div class="author">
+              <div class="niname">{{value.niname}}</div>
+              <div class="email">{{value.author}}</div>
+            </div>
+            </div>
           </mu-card-header>
           <mu-card-text class="text-com">
            {{value.content}}
@@ -236,6 +248,12 @@ body {
     }
   }
   #main {
+    .header{
+      .email{
+        color: #78909c;
+        font-size: 80%;
+      }
+    }
     // background: pink;
     overflow: auto;
     top: 50px;
