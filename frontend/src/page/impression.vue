@@ -25,81 +25,51 @@
           <mu-chip class="demo-chip" color="#fce4ec" data-index="自信满满">自信满满</mu-chip>
           <mu-chip class="demo-chip" color="#fce4ec" data-index="充满爱心">充满爱心</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="自律">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="吃货">吃货</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="积极向上">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="自信满满">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="充满爱心">充满爱心</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="自律">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#fce4ec" data-index="吃货">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="坚强">坚强</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="勇敢">勇敢</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="温柔">温柔</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="果敢">果敢</mu-chip>
+          <mu-chip class="demo-chip" color="#fce4ec" data-index="爽朗">爽朗</mu-chip>
         </div>
       </div>
       <div class="community impress" @click="section1">
          <div class="container m2">
            <!-- #e3f2fd -->
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自律">自律</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="忧郁">忧郁</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="阴沉">阴沉</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="迟疑">迟疑</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="固执">固执</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自闭">自闭</mu-chip>
+          <mu-divider style="margin:5px;opacity:0"></mu-divider>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="没有耐心">积极向上</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="大大咧咧">自信满满</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="容易急躁">容易急躁</mu-chip>
+          <mu-divider style="margin:5px;opacity:0"></mu-divider>
           <mu-chip class="demo-chip" color="#e3f2fd" data-index="吃货">吃货</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="积极向上">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自信满满">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="充满爱心">充满爱心</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自律">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="吃货">吃货</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="积极向上">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自信满满">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="充满爱心">充满爱心</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="自律">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#e3f2fd" data-index="吃货">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="软弱">软弱</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="多疑">多疑</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="易怒">易怒</mu-chip>
+          <mu-chip class="demo-chip" color="#e3f2fd" data-index="冷漠">冷漠</mu-chip>
         </div>
       </div>
       <div class="work impress" @click="section1">
          <div class="container m3">
            <!-- #dcedc8 -->
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="自律">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="吃货">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="内向">内向</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="外向">外向</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="害羞">害羞</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="老实">老实</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="稳重">稳重</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="积极向上">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="自信满满">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="充满爱心">充满爱心</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="兢兢业业">兢兢业业</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="深思熟虑">深思熟虑</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="喜欢冒险">喜欢冒险</mu-chip>
           <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="自律">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="吃货">吃货</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="积极向上">积极向上</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="自信满满">自信满满</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index=">充满爱心">充满爱心</mu-chip>
-          <mu-divider style="margin:5px;opacity:0"></mu-divider>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="乐观">乐观</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="正义">正义</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="独立">独立</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="自律">自律</mu-chip>
-          <mu-chip class="demo-chip" color="#dcedc8" data-index="吃货">吃货</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="豪爽">豪爽</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="从众">从众</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="宽容">宽容</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="调皮">调皮</mu-chip>
+          <mu-chip class="demo-chip" color="#dcedc8" data-index="撒娇">撒娇</mu-chip>
         </div>
       </div>
     </div>
@@ -200,7 +170,7 @@ body {
         // background: green;
       }
       .impress{
-        height: 240px;
+        height: 150px;
         overflow: hidden;
         .container{
           width: 90%;
