@@ -12,7 +12,10 @@
 </template>
 
 <script>
-import topDiaryBtn from "@/components/common/top-diary-btn.vue"
+import Vue from 'vue';
+import topDiaryBtn from "@/components/common/top-diary-btn.vue";
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   components:{
     topDiaryBtn
@@ -58,7 +61,8 @@ export default {
             avatar:this.pageMsg.avatar
           }
         }).then((res) =>{
-          // console.log(res);
+          this.$router.push('/community');
+          this.$alert('已发送');
         })
     }
   },

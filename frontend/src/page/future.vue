@@ -23,6 +23,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   data() {
     return {
@@ -50,6 +53,9 @@ export default {
       this.futureMail.futureSeconds = this.futureSeconds = this.futureMail.date.getHours() * 3600 + this.futureMail.date.getMinutes() * 60 + this.futureMail.date.getSeconds();
       localStorage.setItem('futureTime',this.futureMail.futureSeconds);
       // console.log(localStorage.getItem('futureTime'));
+      this.$alert('您的信已寄出');
+      this.$router.go(-1);
+
     }
   },
   mounted () {
