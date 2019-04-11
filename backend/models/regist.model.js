@@ -4,23 +4,22 @@ var  schema = new mongoose.Schema({ //实例化mongoose的结构Schema
   password:String,
   niname: { 
     type:String,
-    default:0       
+    default:'一位不知名的路人'       
   }, 
   sex: { 
     type:String,
-    default:0       
+    default:'未录入'       
   }, 
   birthday: { 
-    type:String,
-    default:0       
+    type:String    
   }, 
   area: { 
     type:String,
-    default:0       
+    default:'未录入'       
   }, 
   Introduction: { 
     type:String,
-    default:0       
+    default:'您还没有自我介绍呢'       
   },
   avatar: {
     type:String,

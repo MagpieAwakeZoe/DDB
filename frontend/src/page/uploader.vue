@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Message from 'muse-ui-message';
+Vue.use(Message);
 export default {
   data () {
     return {
@@ -34,7 +37,11 @@ export default {
             'Content-Type': 'multipart/form-data'
           }
       }).then(res=>{
-        alert("提交成功");
+        this.$alert('头像上传成功');
+        // console.log(1);
+      }).then(() =>{
+        // console.log(2);
+        this.$router.push('/my');
       }).catch(err=>{
         console.log(err);
       });

@@ -68,7 +68,7 @@ export default {
       // console.log(this.futureTime);
       // console.log(this.nowAllSecond);
       let timeDiffPlus =  this.futureTime - this.nowAllSecond;
-      // console.log(timeDiffPlus);
+      console.log('还有' + timeDiffPlus + '秒收到来信');
       if (timeDiffPlus > 0) {
         clearTimeout(this.timer);
         this.timer = setTimeout(()=>{

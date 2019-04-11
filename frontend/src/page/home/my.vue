@@ -11,7 +11,7 @@
            <div class="head-tab">
              <div class="head-container">
              <div class="avantar" @click="toUpload">
-               <img :src="avatar" alt="">
+               <img :src="imgURL" alt="">
              </div>
              <div class="account">
                <div class="email">
@@ -117,7 +117,7 @@ export default {
   methods: {
     quitAccount () {
       //进行一些操作和处理
-      localStorage.clear();
+      localStorage.removeItem('vuex');
       this.$router.push('/login');
     },
     goPersonalData () {
